@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Needles & Hooks | Garnstuen.dk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-vellum: #F9F7F2; --text-dark: #3E3A35; --text-muted: #7A7A7A; --gold-accent: rgba(197, 163, 113, 0.6); --font-serif: 'Cormorant Garamond', serif; --font-sans: 'Montserrat', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-vellum); color: var(--text-dark); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        header { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; color: #2C3E50; }
+        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        .nav-links a:hover { color: #C5A371; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 40px 5% 100px; max-width: 1400px; margin: 0 auto; }
+        .img-placeholder { width: 100%; aspect-ratio: 4/5; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; position: relative; clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); border: 1px solid #d4cbb3; }
+        .img-placeholder::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--gold-accent); clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); }
+        .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; }
+        footer { background-color: #EFECE6; padding: 60px 5%; margin-top: auto; text-align: center; }
+        .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white !important; padding: 10px 20px; border-radius: 4px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GARNSTUEN.DK</div>
+        <nav class="nav-links">
+            <a href="yarn.html">Yarn</a><a href="needles.html" style="color: #C5A371;">Needles & Hooks</a><a href="accessories.html">Accessories</a><a href="books.html">Books</a><a href="assortment.html">Assortment</a>
+        </nav>
+    </header>
+    <main>
+        <div style="text-align: center; padding: 60px 20px 20px;">
+            <h1 style="font-family: var(--font-serif); font-size: 3.5rem; font-weight: 400;">Precision Tools</h1>
+            <p style="color: var(--text-muted); margin-top: 10px;">Craftsmanship begins with the right touch. Explore our curated selection of needles and hooks.</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-placeholder" style="background-color: #fff;"><span style="font-size: 4rem;">🥢</span></div>
+                <div class="product-meta">Addi | Bamboo Circulars</div>
+                <span style="color: var(--text-muted);">From DKK 65,00</span>
+            </div>
+            <div class="product-card">
+                <div class="img-placeholder" style="background-color: #fff;"><span style="font-size: 4rem;">🪝</span></div>
+                <div class="product-meta">Etimo | Rose Crochet Hook</div>
+                <span style="color: var(--text-muted);">From DKK 85,00</span>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Questions about gauge? <a href="https://wa.me/yournumber" class="whatsapp-btn">Message on WhatsApp</a></p>
+    </footer>
+</body>
+</html>
