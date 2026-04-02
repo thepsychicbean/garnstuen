@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om Os | Garnstuen.dk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL THEME STYLES --- */
+        :root {
+            --bg-vellum: #F9F7F2;
+            --text-dark: #3E3A35;
+            --text-muted: #7A7A7A;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-vellum); color: var(--text-dark); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+        main { flex: 1; }
+
+        /* --- THE PRISTINE HEADER --- */
+        header { 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-vellum);
+            position: relative;
+            z-index: 1000;
+        }
+        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; color: #2C3E50; display: block; }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 25px; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 500; 
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover { color: #C5A371; }
+
+        .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        
+        .lang-toggle { display: flex; gap: 5px; color: var(--text-muted); font-weight: 600; }
+        .lang-toggle a.active { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); }
+        .lang-toggle a:hover { color: var(--text-dark); }
+
+        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
+        .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
+
+        /* --- ABOUT US SPECIFIC STYLES --- */
+        /* This ensures the image is full width but NEVER cropped */
+        .about-banner {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto 0;
+            padding: 0 5%;
+        }
+        .about-banner img {
+            width: 100%;
+            height: auto; /* Keeps original proportions! */
+            display: block;
+            border-radius: 4px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .about-content h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .about-content p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* Store Timings Box */
+        .timings-box {
+            margin-top: 60px;
+            padding: 40px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background-color: #fff;
+            border-radius: 2px;
+        }
+        .timings-box h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .timings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
+        .timings-grid:last-child {
+            border-bottom: none;
+        }
+        .day { font-weight: 500; }
+        .hours { text-align: right; color: var(--text-muted); }
+
+        /* --- THE RICH FOOTER --- */
+        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
+        .footer-col p, .footer-col ul { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; cursor: pointer; transition: color 0.3s ease; }
+        .footer-col ul li:hover { color: var(--text-dark); }
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
+        .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            header { flex-wrap: wrap; gap: 15px; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; }
+            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .menu-toggle { display: flex; }
+            .about-content h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">GARNSTUEN.DK</a>
+        <nav class="nav-links" id="nav-menu">
+            <a href="yarn.html">Garn</a>
+            <a href="needles.html">Strikkepinde & Hæklenåle</a>
+            <a href="accessories.html">Tilbehør & Knapper</a>
+            <a href="books.html">Bøger & Opskrifter</a>
+            <a href="about.html" style="color: #C5A371;">Om Os</a>
+        </nav>
+        <div class="header-actions">
+            <div class="lang-toggle">
+                <a href="#" class="active">DA</a> | <a href="#">EN</a>
+            </div>
+            <a href="reserve.html">Reservationer</a>
+            <div class="menu-toggle" id="mobile-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-banner">
+            <img src="images/about-banner.jpg" alt="Daphni Cottage and Yarn Tree">
+        </section>
+
+        <section class="about-content">
+            <h1>Vores Historie</h1>
+            <p>
+                Velkommen til Garnstuen – dit fristed for kreativitet, fordybelse og garn af allerhøjeste kvalitet. Vi tror på, at strikning er mere end bare en hobby; det er et håndværk, en form for meditation og en måde at skabe noget blivende og smukt med sine egne hænder.
+            </p>
+            <p>
+                Vores hyggelige butik på Østerbrogade 138 er nøje indrettet til at inspirere dig. Vi har rejst og håndplukket de fineste garner fra anerkendte europæiske spinderier. Uanset om du søger den blødeste kashmir, rustik højlandsuld eller silke med et smukt fald, står vi altid klar med ærlig rådgivning og en dyb passion for materialerne.
+            </p>
+            <p>
+                Sæt dig på bænken, find inspiration i vores opskrifter, og lad os hjælpe dig med at forfine hver en maske i dit næste projekt.
+            </p>
+
+            <div class="timings-box">
+                <h3>Åbningstider</h3>
+                
+                <div class="timings-grid">
+                    <span class="day">Mandag - Torsdag</span>
+                    <span class="hours">10:00 - 17:30</span>
+                </div>
+                <div class="timings-grid" style="margin-top: 15px;">
+                    <span class="day">Fredag</span>
+                    <span class="hours">10:00 - 18:00</span>
+                </div>
+                <div class="timings-grid" style="margin-top: 15px;">
+                    <span class="day">Lørdag</span>
+                    <span class="hours">10:00 - 14:00</span>
+                </div>
+                <div class="timings-grid" style="margin-top: 15px;">
+                    <span class="day">Søndag & Helligdage</span>
+                    <span class="hours">Lukket</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Besøg Butikken</h4>
+                <div class="footer-icon-text">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="about.html">Om Os</a></li>
+                    <li><a href="club.html">Strikkeklub</a></li>
+                    <li><a href="#">Fragt & Returnering</a></li>
+                    <li><a href="#">Persondatapolitik</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>Garnstuen.dk © 2026. Forfiner hver en maske.</p></div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+    </script>
+</body>
+</html>
