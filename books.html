@@ -1,46 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books & Patterns | Garnstuen.dk</title>
+    <title>Bøger & Opskrifter | Garnstuen.dk</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-vellum: #F9F7F2; --text-dark: #3E3A35; --font-serif: 'Cormorant Garamond', serif; }
-        body { background-color: var(--bg-vellum); color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
-        header { padding: 30px 5%; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; }
-        .book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-        .book-card { text-align: center; }
-        .book-cover { width: 100%; aspect-ratio: 3/4; background: #2C3E50; color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        footer { padding: 40px; background: #EFECE6; text-align: center; margin-top: 60px; }
+        /* --- GLOBAL THEME STYLES --- */
+        :root {
+            --bg-vellum: #F9F7F2;
+            --text-dark: #3E3A35;
+            --text-muted: #7A7A7A;
+            --gold-accent: rgba(197, 163, 113, 0.6);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-vellum); color: var(--text-dark); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+        main { flex: 1; }
+
+        /* --- THE PRISTINE HEADER --- */
+        header { 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-vellum);
+            position: relative;
+            z-index: 1000;
+        }
+        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; color: #2C3E50; }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 25px; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 500; 
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover { color: #C5A371; }
+
+        .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        
+        /* Language Switcher */
+        .lang-toggle { display: flex; gap: 5px; color: var(--text-muted); font-weight: 600; }
+        .lang-toggle a.active { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); }
+        .lang-toggle a:hover { color: var(--text-dark); }
+
+        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
+        .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
+
+        /* --- BOOK GRID & LIBRARY AESTHETIC --- */
+        .book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; padding: 40px 5% 100px; max-width: 1400px; margin: 0 auto; }
+        .book-card { text-align: left; cursor: pointer; }
+        
+        /* The Book Cover - Removed the frame, added a realistic soft shadow */
+        .book-cover { 
+            width: 100%; 
+            aspect-ratio: 3/4; 
+            margin-bottom: 20px; 
+            background-size: cover;
+            background-position: center;
+            background-color: #EFECE6;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08); /* Soft library shadow */
+            transition: transform 0.4s ease, box-shadow 0.4s ease; 
+        }
+        
+        .book-card:hover .book-cover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+        }
+        
+        .product-meta { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; margin-top: 10px; }
+        .product-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; line-height: 1.5; }
+        .price { display: block; margin-top: 10px; font-size: 0.95rem; color: var(--text-dark); }
+
+        /* --- THE RICH FOOTER --- */
+        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
+        .footer-col p, .footer-col ul { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; cursor: pointer; transition: color 0.3s ease; }
+        .footer-col ul li:hover { color: var(--text-dark); }
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
+        .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white !important; padding: 10px 20px; border-radius: 4px; font-weight: 500; margin-top: 15px; transition: background 0.3s; }
+        .whatsapp-btn:hover { background-color: #128C7E; }
+        .whatsapp-btn svg { fill: white; width: 18px; height: 18px; margin: 0; }
+        .map-link { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 2px; font-weight: 500; }
+        .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            header { flex-wrap: wrap; gap: 15px; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; }
+            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .menu-toggle { display: flex; }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <div style="font-family: var(--font-serif); font-size: 2rem;">GARNSTUEN.DK</div>
-        <nav class="nav-links">
-            <a href="yarn.html">Yarn</a><a href="needles.html">Needles</a><a href="accessories.html">Accessories</a><a href="books.html" style="color: #C5A371;">Books</a><a href="assortment.html">Assortment</a>
+        <div class="logo">GARNSTUEN.DK</div>
+        <nav class="nav-links" id="nav-menu">
+            <a href="yarn.html">Garn</a>
+            <a href="needles.html">Strikkepinde & Hæklenåle</a>
+            <a href="accessories.html">Tilbehør & Knapper</a>
+            <a href="books.html" style="color: #C5A371;">Bøger & Opskrifter</a>
+            <a href="assortment.html">Sortiment</a>
         </nav>
-    </header>
-    <main>
-        <div style="text-align: center; padding: 60px 0;">
-            <h1 style="font-family: var(--font-serif); font-size: 3.5rem;">The Library</h1>
-            <p>Exclusive pattern collections and hardback volumes for the inspired soul.</p>
+        <div class="header-actions">
+            <div class="lang-toggle">
+                <a href="#" class="active">DA</a> | <a href="#">EN</a>
+            </div>
+            <a href="reserve.html">Reservationer</a>
+            <div class="menu-toggle" id="mobile-toggle">
+                <span></span><span></span><span></span>
+            </div>
         </div>
+    </header>
+
+    <main>
+        <div style="text-align: center; padding: 60px 20px 20px;">
+            <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400;">Biblioteket</h1>
+            <p style="color: #7A7A7A; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">Find inspiration til dit næste projekt. Vi forhandler et eksklusivt udvalg af internationale strikkemagasiner og hardback-udgivelser.</p>
+        </div>
+
         <div class="book-grid">
-            <div class="book-card">
-                <div class="book-cover">PetiteKnit<br>Vol. 1</div>
-                <h3 style="font-family: var(--font-serif);">PetiteKnit: Baby Knits</h3>
-                <span>DKK 150,00</span>
+            
+            <div class="product-card">
+                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="product-meta">Laine Magazine | Issue 19</div>
+                <div class="product-desc">Nordic Knit Life. 11 smukke mønstre, dybdegående interviews og visuel poesi. (Engelsk)</div>
+                <span class="price">DKK 195,00</span>
             </div>
-            <div class="book-card">
-                <div class="book-cover" style="background: #C5A371;">Laine<br>Magazine</div>
-                <h3 style="font-family: var(--font-serif);">Laine Magazine - Issue 18</h3>
-                <span>DKK 180,00</span>
+
+            <div class="product-card">
+                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="product-meta">PetiteKnit | Børnestrik</div>
+                <div class="product-desc">En samling af klassiske og tidløse opskrifter til de mindste, samlet i en smuk indbinding.</div>
+                <span class="price">DKK 250,00</span>
             </div>
+
+            <div class="product-card">
+                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="product-meta">Strikkens Håndværk</div>
+                <div class="product-desc">Den ultimative opslagsværk for masketeknikker, montering og perfekt pasform.</div>
+                <span class="price">DKK 299,00</span>
+            </div>
+
+            <div class="product-card">
+                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="product-meta">MFT | Vinterkollektion 24</div>
+                <div class="product-desc">Trykte opskrifter på kraftigt kunstpapir. Indeholder opskrift på både sweater og cardigan.</div>
+                <span class="price">DKK 65,00</span>
+            </div>
+
         </div>
     </main>
-    <footer>Garnstuen.dk © 2026</footer>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Besøg Butikken</h4>
+                <div class="footer-icon-text">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <p>Garnstuen<br>Din Gade 123<br>1000 København K, DK</p>
+                </div>
+                <a href="#" class="map-link" target="_blank">Find Vej</a>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt Os</h4>
+                <p>Har du brug for hjælp til at finde det rette garn eller matche en strikkefasthed? Skriv direkte til os.</p>
+                <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    Skriv på WhatsApp
+                </a>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul><li>Fragt & Returnering</li><li>Handelsbetingelser</li><li>Persondatapolitik</li><li>Gavekort</li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>Garnstuen.dk © 2026. Forfiner hver en maske.</p></div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+    </script>
 </body>
 </html>
