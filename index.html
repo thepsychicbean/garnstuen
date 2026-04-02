@@ -123,24 +123,43 @@
         /* Mobile Adjustments */
         @media (max-width: 1024px) {
             header { 
-                justify-content: center; /* Centers the logo in the middle of the screen */
+                justify-content: center; 
                 padding-top: 15px;
                 padding-bottom: 15px;
             }
             .header-actions { 
                 position: absolute; 
-                right: 5%; /* Pins the menu buttons to the right side */
+                right: 5%; 
             }
             /* Hides the text links on mobile so they don't overlap the logo */
             .lang-toggle, .header-actions > a {
                 display: none; 
             }
             .logo img {
-                max-height: 50px; /* Perfect size for phone screens */
+                max-height: 75px; /* Increased from 50px for a much stronger presence */
             }
             .hero { grid-template-columns: 1fr; gap: 30px; padding: 40px 5%; }
             .hero-image { height: 400px; order: -1; }
-            .hero-text h1 { font-size: 3rem; }
+            
+            /* --- NEW MOBILE HERO TEXT ALIGNMENT --- */
+            .hero-text {
+                text-align: center; /* Centers the paragraph text */
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Centers the button perfectly */
+            }
+            .hero-text h1 { 
+                font-size: 2.4rem; /* Scaled down from 3rem so it fits beautifully */
+                margin-bottom: 10px;
+            }
+            .hero-text .en-subtitle {
+                font-size: 1.8rem; /* Scaled down proportionally */
+                margin-bottom: 20px;
+            }
+            .hero-text p {
+                max-width: 100%; /* Lets the text breathe across the full mobile width */
+            }
+            
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
