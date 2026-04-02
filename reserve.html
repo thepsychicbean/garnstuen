@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserver i Butik | Garnstuen.dk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL THEME STYLES --- */
+        :root {
+            --bg-vellum: #F9F7F2;
+            --text-dark: #3E3A35;
+            --text-muted: #7A7A7A;
+            --gold-accent: rgba(197, 163, 113, 0.6);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-vellum); color: var(--text-dark); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 5%; }
+
+        /* --- THE PRISTINE HEADER --- */
+        header { 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-vellum);
+            position: relative;
+            z-index: 1000;
+        }
+        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; color: #2C3E50; }
+        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-links a:hover { color: #C5A371; }
+        .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        .lang-toggle { display: flex; gap: 5px; color: var(--text-muted); font-weight: 600; }
+        .lang-toggle a.active { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); }
+        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
+        .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
+
+        /* --- RESERVATION FORM STYLES --- */
+        .reserve-container {
+            background-color: white;
+            border: 1px solid #EFECE6;
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        
+        .reserve-container::after {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border: 1px solid var(--gold-accent);
+            pointer-events: none;
+        }
+
+        .reserve-container h1 { font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 10px; font-weight: 400; }
+        .reserve-container p { color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem; line-height: 1.6; }
+
+        .form-group { text-align: left; margin-bottom: 25px; }
+        .form-group label { display: block; font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 8px; color: var(--text-dark); }
+        .form-group input, .form-group select { 
+            width: 100%; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            background: var(--bg-vellum); 
+            font-family: var(--font-sans); 
+            font-size: 0.95rem; 
+            outline: none; 
+            transition: border 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--gold-accent); }
+
+        .btn-submit { 
+            width: 100%; 
+            background-color: var(--text-dark); 
+            color: white; 
+            padding: 18px; 
+            border: none; 
+            font-family: var(--font-sans); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-weight: 500;
+            cursor: pointer; 
+            transition: background 0.3s; 
+            margin-top: 10px;
+        }
+        .btn-submit:hover { background-color: #1a1a1a; }
+
+        /* Success Message (Hidden by default) */
+        #success-message { display: none; padding: 40px 0; }
+        #success-message h2 { font-family: var(--font-serif); font-size: 2.5rem; color: #849684; margin-bottom: 15px; }
+
+        /* --- THE RICH FOOTER --- */
+        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
+        .footer-col p, .footer-col ul { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; cursor: pointer; transition: color 0.3s ease; }
+        .footer-col ul li:hover { color: var(--text-dark); }
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
+        .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white !important; padding: 10px 20px; border-radius: 4px; font-weight: 500; margin-top: 15px; transition: background 0.3s; }
+        .map-link { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 2px; font-weight: 500; }
+        .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
+
+        @media (max-width: 1024px) {
+            header { flex-wrap: wrap; gap: 15px; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; }
+            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .menu-toggle { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GARNSTUEN.DK</div>
+        <nav class="nav-links" id="nav-menu">
+            <a href="yarn.html">Garn</a>
+            <a href="needles.html">Strikkepinde & Hæklenåle</a>
+            <a href="accessories.html">Tilbehør & Knapper</a>
+            <a href="books.html">Bøger & Opskrifter</a>
+            <a href="assortment.html">Sortiment</a>
+        </nav>
+        <div class="header-actions">
+            <div class="lang-toggle"><a href="#" class="active">DA</a> | <a href="#">EN</a></div>
+            <a href="reserve.html" style="color: #C5A371;">Reservationer</a>
+            <div class="menu-toggle" id="mobile-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="reserve-container">
+            <div id="reservation-form">
+                <h1>Book en Fremvisning</h1>
+                <p>For at sikre dig den bedste oplevelse med vores garner, tilbyder vi i øjeblikket kun afhentning og fremvisning i vores atelier i København.</p>
+                
+                <div class="form-group">
+                    <label for="name">Fulde Navn</label>
+                    <input type="text" id="name" placeholder="F.eks. Anna Jensen" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mailadresse</label>
+                    <input type="email" id="email" placeholder="Din e-mail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Ønsket Afhentningsdag</label>
+                    <select id="date">
+                        <option>Tirsdag (10:00 - 17:30)</option>
+                        <option>Onsdag (10:00 - 17:30)</option>
+                        <option>Torsdag (10:00 - 18:00)</option>
+                        <option>Fredag (10:00 - 17:30)</option>
+                        <option>Lørdag (10:00 - 14:00)</option>
+                    </select>
+                </div>
+
+                <button class="btn-submit" onclick="submitForm()">Reserver Mine Varer</button>
+            </div>
+
+            <div id="success-message">
+                <h2>Mange Tak!</h2>
+                <p>Din reservation er bekræftet. Vi har lagt dine varer til side og glæder os til at byde dig velkommen i Garnstuen.</p>
+                <a href="index.html" style="color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 2px; font-weight: 500; font-size: 0.9rem;">Vend tilbage til forsiden</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Besøg Butikken</h4>
+                <div class="footer-icon-text">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <p>Garnstuen<br>Din Gade 123<br>1000 København K, DK</p>
+                </div>
+                <a href="#" class="map-link" target="_blank">Find Vej</a>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt Os</h4>
+                <p>Har du brug for hjælp til at finde det rette garn eller matche en strikkefasthed? Skriv direkte til os.</p>
+                <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+                    Message on WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>Garnstuen.dk © 2026. Forfiner hver en maske.</p></div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+
+        // Simple script to handle form submission illusion
+        function submitForm() {
+            document.getElementById('reservation-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
