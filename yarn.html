@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strikkepinde & Hæklenåle | Garnstuen.dk</title>
+    <title>Curated Yarns | Garnstuen.dk</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* --- GLOBAL THEME STYLES --- */
@@ -22,7 +22,7 @@
 
         /* --- THE PRISTINE HEADER --- */
         header { 
-            padding: 20px 5%; 
+            padding: 30px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -45,48 +45,17 @@
         .nav-links a:hover { color: #C5A371; }
 
         .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
-        
-        /* Language Switcher */
-        .lang-toggle { display: flex; gap: 5px; color: var(--text-muted); font-weight: 600; }
-        .lang-toggle a.active { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); }
-        .lang-toggle a:hover { color: var(--text-dark); }
-
         .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
 
         /* --- PRODUCT GRID & VINTAGE FRAMES --- */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
         .product-card { text-align: left; cursor: pointer; }
-        
-        /* Image placeholder configured for rich photography */
-        .img-placeholder { 
-            width: 100%; 
-            aspect-ratio: 4/5; 
-            margin-bottom: 15px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: relative; 
-            clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); 
-            background-size: cover;
-            background-position: center;
-            background-color: #EFECE6;
-            transition: transform 0.4s ease; 
-        }
-        
-        .img-placeholder::after { 
-            content: ""; 
-            position: absolute; 
-            inset: 6px; 
-            border: 1px solid var(--gold-accent); 
-            clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); 
-            pointer-events: none; 
-        }
-        
+        .img-placeholder { width: 100%; aspect-ratio: 4/5; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; position: relative; clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); border: 1px solid #d4cbb3; transition: transform 0.4s ease; }
+        .img-placeholder::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--gold-accent); clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); pointer-events: none; }
         .product-card:hover .img-placeholder { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
         .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin-top: 10px; }
-        .product-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; line-height: 1.4; }
-        .price { display: block; margin-top: 8px; font-size: 0.95rem; color: var(--text-dark); }
+        .price { display: block; margin-top: 5px; font-size: 0.9rem; color: var(--text-muted); }
 
         /* --- THE RICH FOOTER --- */
         footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: 100px; }
@@ -106,7 +75,7 @@
 
         /* Mobile Adjustments */
         @media (max-width: 1024px) {
-            header { flex-wrap: wrap; gap: 15px; }
+            header { flex-direction: column; gap: 20px; padding: 20px 5%; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; }
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
@@ -118,17 +87,13 @@
     <header>
         <div class="logo">GARNSTUEN.DK</div>
         <nav class="nav-links" id="nav-menu">
-            <a href="yarn.html">Garn</a>
-            <a href="needles.html" style="color: #C5A371;">Strikkepinde & Hæklenåle</a>
-            <a href="accessories.html">Tilbehør & Knapper</a>
-            <a href="books.html">Bøger & Opskrifter</a>
-            <a href="assortment.html">Sortiment</a>
+            <a href="yarn.html" style="color: #C5A371;">Yarn</a> <a href="needles.html">Needles & Hooks</a>
+            <a href="accessories.html">Accessories & Buttons</a>
+            <a href="books.html">Books & Patterns</a>
+            <a href="assortment.html">Assortment</a>
         </nav>
         <div class="header-actions">
-            <div class="lang-toggle">
-                <a href="#" class="active">DA</a> | <a href="#">EN</a>
-            </div>
-            <a href="#">Kurv (0)</a>
+            <a href="#">Cart (0)</a>
             <div class="menu-toggle" id="mobile-toggle">
                 <span></span><span></span><span></span>
             </div>
@@ -137,71 +102,69 @@
 
     <main>
         <div style="text-align: center; padding: 60px 20px 20px;">
-            <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400;">Præcisionsværktøj & Tråd</h1>
-            <p style="color: #7A7A7A; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">Godt håndværk starter med det rette værktøj. Udforsk vores udvalg af ergonomiske hæklenåle, rundpinde og fin hæklegarn.</p>
+            <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400;">Curated Yarns</h1>
+            <p style="color: #7A7A7A; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">From airy silk mohairs to sturdy untreated wools, explore our hand-selected palette of European fibers.</p>
         </div>
 
         <div class="product-grid" style="padding: 40px 5% 100px; max-width: 1400px; margin: 0 auto;">
-            
             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1628151015968-3a4429e9efeb?auto=format&fit=crop&q=80&w=800');">
+                <div class="img-placeholder" style="background-color: #849684;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="opacity: 0.8;" alt="Sage Yarn">
                 </div>
-                <div class="product-meta">Addi Nature | Rundpinde</div>
-                <div class="product-desc">Let og glat oliventræ | 80 cm wire</div>
-                <span class="price">Fra DKK 65,00</span>
+                <div class="product-meta">Sandnes | Double Sunday</div>
+                <span class="price">DKK 45,00</span>
             </div>
 
             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1534062141517-f5da11fc8328?auto=format&fit=crop&q=80&w=800');">
+                <div class="img-placeholder" style="background-color: #7C7A75;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="filter: grayscale(1); opacity: 0.8;" alt="Charcoal Yarn">
                 </div>
-                <div class="product-meta">Tulip Etimo | Rose Hæklenål</div>
-                <div class="product-desc">Ergonomisk greb | Perfekt til detaljeret arbejde</div>
-                <span class="price">Fra DKK 85,00</span>
+                <div class="product-meta">Filcolana | Arwetta Classic</div>
+                <span class="price">DKK 38,00</span>
             </div>
 
             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1518386411756-320d75751f3c?auto=format&fit=crop&q=80&w=800');">
+                <div class="img-placeholder" style="background-color: #A89684;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="filter: sepia(0.5); opacity: 0.8;" alt="Taupe Yarn">
                 </div>
-                <div class="product-meta">Merceriseret Bomuldstråd</div>
-                <div class="product-desc">Fint hæklegarn | Skinnende finish til blonder</div>
-                <span class="price">DKK 32,00 (50g)</span>
+                <div class="product-meta">Knitting for Olive | Merino</div>
+                <span class="price">DKK 50,00</span>
             </div>
             
              <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1605374461972-73a11dfb4c2d?auto=format&fit=crop&q=80&w=800');">
+                <div class="img-placeholder" style="background-color: #E1E6E8;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="filter: hue-rotate(180deg); opacity: 0.8;" alt="Blue Yarn">
                 </div>
-                <div class="product-meta">Bambus Strømpepinde</div>
-                <div class="product-desc">Sæt af 5 | Varme hænder og maskekontrol</div>
-                <span class="price">Fra DKK 55,00</span>
+                <div class="product-meta">Gepard | Kid Seta</div>
+                <span class="price">DKK 65,00</span>
             </div>
-
         </div>
     </main>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Besøg Butikken</h4>
+                <h4>Visit The Atelier</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <p>Garnstuen<br>Din Gade 123<br>1000 København K, DK</p>
+                    <p>Garnstuen<br>Your Street Name 123<br>1000 Copenhagen, DK</p>
                 </div>
-                <a href="#" class="map-link" target="_blank">Find Vej</a>
+                <a href="#" class="map-link" target="_blank">Get Directions</a>
             </div>
             <div class="footer-col">
-                <h4>Kontakt Os</h4>
-                <p>Har du brug for hjælp til at finde det rette garn eller matche en strikkefasthed? Skriv direkte til os.</p>
+                <h4>Contact Us</h4>
+                <p>Need help finding the right fiber or matching a gauge? Reach out directly.</p>
                 <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Skriv på WhatsApp
+                    Message on WhatsApp
                 </a>
             </div>
             <div class="footer-col">
                 <h4>Information</h4>
-                <ul><li>Fragt & Returnering</li><li>Handelsbetingelser</li><li>Persondatapolitik</li><li>Gavekort</li></ul>
+                <ul><li>Shipping & Returns</li><li>Terms of Service</li><li>Privacy Policy</li><li>Gift Cards</li></ul>
             </div>
         </div>
-        <div class="footer-bottom"><p>Garnstuen.dk © 2026. Forfiner hver en maske.</p></div>
+        <div class="footer-bottom"><p>Garnstuen.dk © 2026. Elevating everyday stitches.</p></div>
     </footer>
 
     <script>

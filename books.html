@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Patterns | Garnstuen.dk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-vellum: #F9F7F2; --text-dark: #3E3A35; --font-serif: 'Cormorant Garamond', serif; }
+        body { background-color: var(--bg-vellum); color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
+        header { padding: 30px 5%; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; }
+        .book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .book-card { text-align: center; }
+        .book-cover { width: 100%; aspect-ratio: 3/4; background: #2C3E50; color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 25px; }
+        footer { padding: 40px; background: #EFECE6; text-align: center; margin-top: 60px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="font-family: var(--font-serif); font-size: 2rem;">GARNSTUEN.DK</div>
+        <nav class="nav-links">
+            <a href="yarn.html">Yarn</a><a href="needles.html">Needles</a><a href="accessories.html">Accessories</a><a href="books.html" style="color: #C5A371;">Books</a><a href="assortment.html">Assortment</a>
+        </nav>
+    </header>
+    <main>
+        <div style="text-align: center; padding: 60px 0;">
+            <h1 style="font-family: var(--font-serif); font-size: 3.5rem;">The Library</h1>
+            <p>Exclusive pattern collections and hardback volumes for the inspired soul.</p>
+        </div>
+        <div class="book-grid">
+            <div class="book-card">
+                <div class="book-cover">PetiteKnit<br>Vol. 1</div>
+                <h3 style="font-family: var(--font-serif);">PetiteKnit: Baby Knits</h3>
+                <span>DKK 150,00</span>
+            </div>
+            <div class="book-card">
+                <div class="book-cover" style="background: #C5A371;">Laine<br>Magazine</div>
+                <h3 style="font-family: var(--font-serif);">Laine Magazine - Issue 18</h3>
+                <span>DKK 180,00</span>
+            </div>
+        </div>
+    </main>
+    <footer>Garnstuen.dk © 2026</footer>
+</body>
+</html>
