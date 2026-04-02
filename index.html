@@ -35,10 +35,10 @@
             z-index: 1000;
         }
         .logo img { 
-    max-height: 80px; /* Adjust this number to make the logo bigger or smaller */
-    width: auto; 
-    display: block; 
-}
+            max-height: 80px; 
+            width: auto; 
+            display: block; 
+        }
         
         .nav-links { 
             display: flex; 
@@ -53,11 +53,6 @@
 
         .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
         
-        /* Language Switcher */
-        .lang-toggle { display: flex; gap: 5px; color: var(--text-muted); font-weight: 600; }
-        .lang-toggle a.active { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); }
-        .lang-toggle a:hover { color: var(--text-dark); }
-
         .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
 
@@ -85,7 +80,7 @@
         .welcome-section {
             text-align: center;
             max-width: 800px;
-            margin: 80px auto; /* Adds generous breathing room around the text */
+            margin: 80px auto; 
             padding: 0 20px;
         }
         
@@ -134,32 +129,35 @@
                 right: 5%; 
             }
             /* Hides the text links on mobile so they don't overlap the logo */
-            .lang-toggle, .header-actions > a {
+            .header-actions > a {
                 display: none; 
             }
             .logo img {
-                max-height: 75px; /* Increased from 50px for a much stronger presence */
+                max-height: 90px; 
             }
             .hero { grid-template-columns: 1fr; gap: 30px; padding: 40px 5%; }
-            .hero-image { height: 400px; order: -1; }
+            .hero-image { 
+                height: 320px; 
+                order: -1; 
+            }
             
-            /* --- NEW MOBILE HERO TEXT ALIGNMENT --- */
+            /* --- MOBILE HERO TEXT ALIGNMENT --- */
             .hero-text {
-                text-align: center; /* Centers the paragraph text */
+                text-align: center; 
                 display: flex;
                 flex-direction: column;
-                align-items: center; /* Centers the button perfectly */
+                align-items: center; 
             }
             .hero-text h1 { 
-                font-size: 2.4rem; /* Scaled down from 3rem so it fits beautifully */
+                font-size: 2.4rem; 
                 margin-bottom: 10px;
             }
             .hero-text .en-subtitle {
-                font-size: 1.8rem; /* Scaled down proportionally */
+                font-size: 1.8rem; 
                 margin-bottom: 20px;
             }
             .hero-text p {
-                max-width: 100%; /* Lets the text breathe across the full mobile width */
+                max-width: 100%; 
             }
             
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
@@ -172,19 +170,17 @@
 
     <header>
         <a href="index.html" class="logo">
-    <img src="images/logo.png" alt="Garnstuen Logo">
-</a>
+            <img src="images/logo.png" alt="Garnstuen Logo">
+        </a>
         <nav class="nav-links" id="nav-menu">
             <a href="yarn.html">Garn</a>
             <a href="needles.html">Strikkepinde & Hæklenåle</a>
             <a href="accessories.html">Tilbehør & Knapper</a>
             <a href="books.html">Bøger & Opskrifter</a>
             <a href="assortment.html">Sortiment</a>
+            <a href="reserve.html" style="display: none;" id="mobile-reserve">Reservationer</a>
         </nav>
         <div class="header-actions">
-            <div class="lang-toggle">
-                <a href="#" class="active">DA</a> | <a href="#">EN</a>
-            </div>
             <a href="reserve.html">Reservationer</a>
             <div class="menu-toggle" id="mobile-toggle">
                 <span></span><span></span><span></span>
@@ -201,7 +197,7 @@
                 <p>Velkommen til vores digitale atelier. Udforsk vores håndplukkede udvalg af europæisk kvalitetsgarn, skabt til den moderne strikker, der værdsætter ægte håndværk og kompromisløs kvalitet.</p>
                 <a href="yarn.html" class="btn-elegant">Udforsk Kollektionen</a>
             </div>
-            <div class="hero-image" style="width: 100%; height: 550px; background-image: url('images/hero-banner.jpg'); background-size: cover; background-position: center; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-radius: 2px;"></div>
+            <div class="hero-image" style="background-image: url('images/hero-banner.jpg');"></div>
         </section>
 
         <section class="welcome-section">
@@ -212,7 +208,7 @@
         </section>
 
         <h2 class="section-title">En Palet af Pasteller</h2>
- <div class="product-grid">
+        <div class="product-grid">
             
             <div class="product-card" onclick="window.location.href='yarn.html';">
                 <div class="img-placeholder" style="background-image: url('images/merino-sage.jpg');"></div>
@@ -241,7 +237,7 @@
                 <h4>Besøg Butikken</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <p>Garnstuen<br>Østerbrogade 138<br>2100 København, DK</p>
+                    <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK</p>
                 </div>
                 <a href="#" class="map-link" target="_blank">Find Vej</a>
             </div>
@@ -254,7 +250,6 @@
                     Skriv på WhatsApp
                 </a>
             </div>
-            
             <div class="footer-col">
                 <h4>Information</h4>
                 <ul>
@@ -264,18 +259,29 @@
                     <li><a href="#">Persondatapolitik</a></li>
                 </ul>
             </div>
-        </div> <div class="footer-bottom">
+        </div> 
+        
+        <div class="footer-bottom">
             <a href="index.html">
                 <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-logo">
             </a>
-            <p>Daph9&GPS© 2026.</p>
+            <p>Daph9&GPS© 2026. Forfiner hver en maske.</p>
         </div>
     </footer>
 
     <script>
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        const mobileReserve = document.getElementById('mobile-reserve');
+        
+        mobileToggle.addEventListener('click', () => { 
+            navMenu.classList.toggle('active'); 
+            if(navMenu.classList.contains('active')) {
+                mobileReserve.style.display = 'block';
+            } else {
+                mobileReserve.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
