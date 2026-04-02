@@ -34,7 +34,11 @@
             position: relative;
             z-index: 1000;
         }
-        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; color: #2C3E50; display: block; }
+        .logo img { 
+    max-height: 45px; /* Adjust this number to make the logo bigger or smaller */
+    width: auto; 
+    display: block; 
+}
         
         .nav-links { 
             display: flex; 
@@ -131,7 +135,9 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">GARNSTUEN.DK</a>
+        <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Garnstuen Logo">
+</a>
         <nav class="nav-links" id="nav-menu">
             <a href="yarn.html">Garn</a>
             <a href="needles.html">Strikkepinde & Hæklenåle</a>
