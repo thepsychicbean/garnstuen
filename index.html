@@ -34,7 +34,7 @@
             position: relative;
             z-index: 1000;
         }
-        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; color: #2C3E50; }
+        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; color: #2C3E50; display: block; }
         
         .nav-links { 
             display: flex; 
@@ -77,6 +77,29 @@
         .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin-top: 10px; }
         .price { display: block; margin-top: 5px; font-size: 0.9rem; color: var(--text-muted); }
 
+        /* --- WELCOME TEXT SECTION --- */
+        .welcome-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 80px auto; /* Adds generous breathing room around the text */
+            padding: 0 20px;
+        }
+        
+        .welcome-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .welcome-signature {
+            font-family: var(--font-serif);
+            font-size: 1.8rem !important;
+            font-style: italic;
+            color: var(--text-dark) !important;
+            margin-top: 30px;
+        }
+        
         /* --- THE RICH FOOTER --- */
         footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
@@ -108,7 +131,7 @@
 <body>
 
     <header>
-        <div class="logo">GARNSTUEN.DK</div>
+        <a href="index.html" class="logo">GARNSTUEN.DK</a>
         <nav class="nav-links" id="nav-menu">
             <a href="yarn.html">Garn</a>
             <a href="needles.html">Strikkepinde & Hæklenåle</a>
@@ -120,7 +143,7 @@
             <div class="lang-toggle">
                 <a href="#" class="active">DA</a> | <a href="#">EN</a>
             </div>
-            <a href="#">Kurv (0)</a>
+            <a href="reserve.html">Reservationer</a>
             <div class="menu-toggle" id="mobile-toggle">
                 <span></span><span></span><span></span>
             </div>
@@ -137,6 +160,13 @@
                 <a href="yarn.html" class="btn-elegant">Udforsk Kollektionen</a>
             </div>
             <div class="hero-image"></div>
+        </section>
+
+        <section class="welcome-section">
+            <p>
+                I GARNSTUEN på Østerbrogade 138 kan du finde alt hvad du har brug for til den ultimative strikkeoplevelse, hvad enten du er nybegynder eller rutineret strikker. Butikken har et stort og fristende udvalg af lækre garner i mange kvaliteter. Kom forbi og bliv inspireret - vi har et stort og bredt udvalg af forskellige garnkvaliteter i bl.a. uld, bomuld, kashmir, hør og bambus, samt knapper, strikkepinde, maskeholdere, pindemålere og andet fantastisk tilbehør til dit næste strikkeprojekt...
+            </p>
+            <p class="welcome-signature">Vi glæder os til at betjene dig!</p>
         </section>
 
         <h2 class="section-title">En Palet af Pasteller</h2>
