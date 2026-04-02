@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessories & Buttons | Garnstuen.dk</title>
+    <title>Tilbehør & Knapper | Garnstuen.dk</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* --- GLOBAL THEME STYLES --- */
@@ -12,6 +12,7 @@
             --text-dark: #3E3A35;
             --text-muted: #7A7A7A;
             --gold-accent: rgba(197, 163, 113, 0.6);
+            --pastel-sage: #849684;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -20,7 +21,7 @@
         a { text-decoration: none; color: inherit; }
         main { flex: 1; }
 
-       /* --- THE PRISTINE HEADER --- */
+        /* --- THE PRISTINE HEADER --- */
         header { 
             padding: 20px 5%; 
             display: flex; 
@@ -31,7 +32,11 @@
             position: relative;
             z-index: 1000;
         }
-        .logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; color: #2C3E50; display: block; }
+        .logo img { 
+            max-height: 80px; 
+            width: auto; 
+            display: block; 
+        }
         
         .nav-links { 
             display: flex; 
@@ -43,22 +48,53 @@
             transition: all 0.3s ease;
         }
         .nav-links a:hover { color: #C5A371; }
+        .nav-links a.active-link { color: #C5A371; } /* Highlights current page */
 
         .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
         
-        /* Language Switcher */
-        .lang-toggle { display: flex; gap: 5px; color: var(--text-muted); font-weight: 600; }
-        .lang-toggle a.active { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); }
-        .lang-toggle a:hover { color: var(--text-dark); }
-
         .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
 
+        /* --- ACCESSORIES HERO SECTION --- */
+        .accessories-hero {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto 0;
+            padding: 0 5%;
+        }
+        .accessories-hero-img {
+            width: 100%;
+            height: 450px;
+            /* Update this URL if you want a different top banner image */
+            background-image: url('https://images.unsplash.com/photo-1622359560447-3dc638a168b9?auto=format&fit=crop&q=80&w=1200'); 
+            background-size: cover;
+            background-position: center 60%;
+            border-radius: 2px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        
+        .welcome-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 60px auto 40px; 
+            padding: 0 20px;
+        }
+        .welcome-section h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .welcome-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+        }
+
         /* --- PRODUCT GRID & VINTAGE FRAMES --- */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 5% 100px; max-width: 1400px; margin: 0 auto; }
         .product-card { text-align: left; cursor: pointer; }
         
-        /* Updated image placeholder to support full background images */
         .img-placeholder { 
             width: 100%; 
             aspect-ratio: 4/5; 
@@ -70,11 +106,10 @@
             clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); 
             background-size: cover;
             background-position: center;
-            background-color: #EFECE6; /* Fallback color */
+            background-color: #EFECE6; 
             transition: transform 0.4s ease; 
         }
         
-        /* The delicate gold inner border */
         .img-placeholder::after { 
             content: ""; 
             position: absolute; 
@@ -85,12 +120,12 @@
         }
         
         .product-card:hover .img-placeholder { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin-top: 10px; }
-        .product-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; line-height: 1.4; }
+        .product-meta { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; margin-top: 10px; }
+        .product-desc { font-size: 0.9rem; color: var(--text-muted); margin-top: 5px; line-height: 1.4; }
         .price { display: block; margin-top: 8px; font-size: 0.95rem; color: var(--text-dark); }
 
         /* --- THE RICH FOOTER --- */
-        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: 100px; }
+        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
         .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
         .footer-col p, .footer-col ul { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
@@ -103,12 +138,32 @@
         .whatsapp-btn:hover { background-color: #128C7E; }
         .whatsapp-btn svg { fill: white; width: 18px; height: 18px; margin: 0; }
         .map-link { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 2px; font-weight: 500; }
+        .footer-logo { max-height: 80px; margin: 0 auto 20px auto; display: block; opacity: 0.8; transition: opacity 0.3s ease; }
+        .footer-logo:hover { opacity: 1; }
         .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
 
         /* Mobile Adjustments */
         @media (max-width: 1024px) {
-            header { flex-direction: column; gap: 20px; padding: 20px 5%; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; }
+            header { 
+                justify-content: center; 
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            .header-actions { 
+                position: absolute; 
+                right: 5%; 
+            }
+            .header-actions > a {
+                display: none; /* Hides 'Reservationer' next to logo on small screens */
+            }
+            .logo img {
+                max-height: 75px; 
+            }
+            
+            .accessories-hero-img { height: 280px; }
+            .welcome-section h1 { font-size: 2.6rem; }
+            
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
         }
@@ -116,19 +171,19 @@
 </head>
 <body>
 
-   <header>
-        <a href="index.html" class="logo">GARNSTUEN.DK</a>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Garnstuen Logo">
+        </a>
         <nav class="nav-links" id="nav-menu">
             <a href="yarn.html">Garn</a>
             <a href="needles.html">Strikkepinde & Hæklenåle</a>
-            <a href="accessories.html">Tilbehør & Knapper</a>
+            <a href="accessories.html" class="active-link">Tilbehør & Knapper</a>
             <a href="books.html">Bøger & Opskrifter</a>
             <a href="assortment.html">Sortiment</a>
+            <a href="reserve.html" style="display: none;" id="mobile-reserve">Reservationer</a>
         </nav>
         <div class="header-actions">
-            <div class="lang-toggle">
-                <a href="#" class="active">DA</a> | <a href="#">EN</a>
-            </div>
             <a href="reserve.html">Reservationer</a>
             <div class="menu-toggle" id="mobile-toggle">
                 <span></span><span></span><span></span>
@@ -137,42 +192,42 @@
     </header>
 
     <main>
-        <div style="text-align: center; padding: 60px 20px 20px;">
-            <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400;">The Finishing Touches</h1>
-            <p style="color: #7A7A7A; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">Elevate your handcrafted garments with our collection of premium European buttons, precision scissors, and essential notions.</p>
-        </div>
+        <section class="accessories-hero">
+            <div class="accessories-hero-img"></div>
+        </section>
 
-        <div class="product-grid" style="padding: 40px 5% 100px; max-width: 1400px; margin: 0 auto;">
+        <section class="welcome-section">
+            <h1>De Sidste Detaljer</h1>
+            <p>Fuldend dine håndlavede kreationer med vores kollektion af førsteklasses europæiske knapper, præcisionssakse og uundværligt tilbehør. Hver eneste detalje er nøje udvalgt for at tilføje karakter, varme og elegance til dit design.</p>
+        </section>
+
+        <div class="product-grid">
             
             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1590240470656-787094d4d682?auto=format&fit=crop&q=80&w=800');">
-                </div>
-                <div class="product-meta">Olive Wood Buttons</div>
-                <div class="product-desc">20mm | Perfect for chunky cardigans</div>
-                <span class="price">DKK 45,00 (Set of 5)</span>
+                <div class="img-placeholder" style="background-image: url('images/olive-buttons.jpg');"></div>
+                <div class="product-meta">Oliventræsknapper</div>
+                <div class="product-desc">20mm | Perfekt til vamsede cardigans</div>
+                <span class="price">DKK 45,00 (Sæt med 5)</span>
             </div>
 
             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1622359560447-3dc638a168b9?auto=format&fit=crop&q=80&w=800');">
-                </div>
-                <div class="product-meta">Mother of Pearl</div>
-                <div class="product-desc">15mm | Ideal for fine merino & silk knits</div>
-                <span class="price">DKK 65,00 (Set of 8)</span>
+                <div class="img-placeholder" style="background-image: url('images/pearl-buttons.jpg');"></div>
+                <div class="product-meta">Perlemorsknapper</div>
+                <div class="product-desc">15mm | Ideel til fin merino & silke</div>
+                <span class="price">DKK 65,00 (Sæt med 8)</span>
             </div>
 
             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1605374461972-73a11dfb4c2d?auto=format&fit=crop&q=80&w=800'); background-color: #A89684;">
-                </div>
-                <div class="product-meta">Genuine Horn Toggles</div>
-                <div class="product-desc">35mm | Classic closure for heavy wool jackets</div>
-                <span class="price">DKK 30,00 (Each)</span>
+                <div class="img-placeholder" style="background-image: url('images/horn-toggles.jpg'); background-color: var(--pastel-sage);"></div>
+                <div class="product-meta">Ægte Horn Toggles</div>
+                <div class="product-desc">35mm | Klassisk lukning til tunge uldjakker</div>
+                <span class="price">DKK 30,00 (Pr. stk)</span>
             </div>
             
-             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1581447036496-d04b68e0e1eb?auto=format&fit=crop&q=80&w=800');">
-                </div>
-                <div class="product-meta">Merchant & Mills Scissors</div>
-                <div class="product-desc">Matte Black | Precision snips for yarn tails</div>
+            <div class="product-card">
+                <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1581447036496-d04b68e0e1eb?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="product-meta">Merchant & Mills Saks</div>
+                <div class="product-desc">Mat Sort | Præcisionsklip til garnender</div>
                 <span class="price">DKK 120,00</span>
             </div>
 
@@ -182,33 +237,56 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Visit The Atelier</h4>
+                <h4>Besøg Butikken</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <p>Garnstuen<br>Your Street Name 123<br>1000 Copenhagen, DK</p>
+                    <p>Garnstuen<br>Østerbrogade 138<br>2100 København, DK</p>
                 </div>
-                <a href="#" class="map-link" target="_blank">Get Directions</a>
+                <a href="#" class="map-link" target="_blank">Find Vej</a>
             </div>
+            
             <div class="footer-col">
-                <h4>Contact Us</h4>
-                <p>Need help finding the right fiber or matching a gauge? Reach out directly.</p>
+                <h4>Kontakt Os</h4>
+                <p>Har du brug for hjælp til at finde det rette garn eller matche en strikkefasthed? Skriv direkte til os.</p>
                 <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Message on WhatsApp
+                    Skriv på WhatsApp
                 </a>
             </div>
+            
             <div class="footer-col">
                 <h4>Information</h4>
-                <ul><li>Shipping & Returns</li><li>Terms of Service</li><li>Privacy Policy</li><li>Gift Cards</li></ul>
+                <ul>
+                    <li><a href="about.html">Om Os</a></li>
+                    <li><a href="club.html">Strikkeklub</a></li>
+                    <li><a href="#">Fragt & Returnering</a></li>
+                    <li><a href="#">Persondatapolitik</a></li>
+                </ul>
             </div>
+        </div> 
+        
+        <div class="footer-bottom">
+            <a href="index.html">
+                <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-logo">
+            </a>
+            <p>Daph9&GPS© 2026. Forfiner hver en maske.</p>
         </div>
-        <div class="footer-bottom"><p>Garnstuen.dk © 2026. Elevating everyday stitches.</p></div>
     </footer>
 
     <script>
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        const mobileReserve = document.getElementById('mobile-reserve');
+        
+        mobileToggle.addEventListener('click', () => { 
+            navMenu.classList.toggle('active'); 
+            // Ensures the 'Reservationer' link shows up inside the mobile menu dropdown
+            if(navMenu.classList.contains('active')) {
+                mobileReserve.style.display = 'block';
+            } else {
+                mobileReserve.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
