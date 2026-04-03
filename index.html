@@ -39,19 +39,14 @@
             transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
         }
         .splash-image {
-            width: 90vw;             /* Takes up 90% of the screen width on mobile */
-            max-width: 600px;        /* Prevents it from getting too massive on a wide desktop */
-            max-height: 75vh;        /* Ensures it never gets taller than the screen itself */
-            object-fit: contain;     /* Keeps the image perfectly proportioned without stretching */
+            width: 90vw;             
+            max-width: 600px;        
+            max-height: 75vh;        
+            object-fit: contain;     
             margin-bottom: 30px;
             animation: gentle-pulse 3s infinite ease-in-out; 
-        }
-        .splash-text {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            font-style: italic;
-            letter-spacing: 1px;
+            /* This is the magic line that removes the white background: */
+            mix-blend-mode: multiply; 
         }
         #splash-screen.fade-away {
             opacity: 0;
