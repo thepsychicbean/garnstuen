@@ -23,6 +23,43 @@
         a { text-decoration: none; color: inherit; }
         main { flex: 1; }
 
+        /* --- SPLASH SCREEN STYLES --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--bg-vellum);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+        }
+        .splash-image {
+            max-width: 250px;
+            margin-bottom: 20px;
+            animation: gentle-pulse 3s infinite ease-in-out; 
+        }
+        .splash-text {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+        #splash-screen.fade-away {
+            opacity: 0;
+            visibility: hidden;
+        }
+        @keyframes gentle-pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.03); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
         /* --- THE PRISTINE HEADER --- */
         header { 
             padding: 20px 5%; 
@@ -124,41 +161,16 @@
                 padding-top: 15px;
                 padding-bottom: 15px;
             }
-            .header-actions { 
-                position: absolute; 
-                right: 5%; 
-            }
-            /* Hides the text links on mobile so they don't overlap the logo */
-            .header-actions > a {
-                display: none; 
-            }
-            .logo img {
-                max-height: 90px; 
-            }
+            .header-actions { position: absolute; right: 5%; }
+            .header-actions > a { display: none; }
+            .logo img { max-height: 90px; }
             .hero { grid-template-columns: 1fr; gap: 30px; padding: 40px 5%; }
-            .hero-image { 
-                height: 320px; 
-                order: -1; 
-            }
+            .hero-image { height: 320px; order: -1; }
             
-            /* --- MOBILE HERO TEXT ALIGNMENT --- */
-            .hero-text {
-                text-align: center; 
-                display: flex;
-                flex-direction: column;
-                align-items: center; 
-            }
-            .hero-text h1 { 
-                font-size: 2.4rem; 
-                margin-bottom: 10px;
-            }
-            .hero-text .en-subtitle {
-                font-size: 1.8rem; 
-                margin-bottom: 20px;
-            }
-            .hero-text p {
-                max-width: 100%; 
-            }
+            .hero-text { text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .hero-text h1 { font-size: 2.4rem; margin-bottom: 10px; }
+            .hero-text .en-subtitle { font-size: 1.8rem; margin-bottom: 20px; }
+            .hero-text p { max-width: 100%; }
             
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
@@ -167,6 +179,11 @@
     </style>
 </head>
 <body>
+
+    <div id="splash-screen">
+        <img src="images/logo.png" alt="Garnstuen Intro" class="splash-image">
+        <p class="splash-text">Forfiner hver en maske...</p>
+    </div>
 
     <header>
         <a href="index.html" class="logo">
@@ -281,6 +298,14 @@
             } else {
                 mobileReserve.style.display = 'none';
             }
+        });
+
+        // --- SPLASH SCREEN TIMER ---
+        window.addEventListener('load', () => {
+            const splashScreen = document.getElementById('splash-screen');
+            setTimeout(() => {
+                splashScreen.classList.add('fade-away');
+            }, 3000); 
         });
     </script>
 </body>
