@@ -23,6 +23,11 @@
         a { text-decoration: none; color: inherit; }
         main { flex: 1; }
 
+        /* Prevent scrolling while splash screen is active */
+        .no-scroll {
+            overflow: hidden;
+        }
+
         /* --- SPLASH SCREEN STYLES --- */
         #splash-screen {
             position: fixed;
@@ -176,7 +181,7 @@
         }
     </style>
 </head>
-<body>
+<body class="no-scroll">
 
     <div id="splash-screen">
         <img src="images/splash.jpg" alt="Garnstuen Intro" class="splash-image">
@@ -303,6 +308,7 @@
             const splashScreen = document.getElementById('splash-screen');
             setTimeout(() => {
                 splashScreen.classList.add('fade-away');
+                document.body.classList.remove('no-scroll');
             }, 3000); 
         });
     </script>
