@@ -43,24 +43,34 @@
             z-index: 9999;
             transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
         }
-        .splash-image {
-            width: 90vw;             
-            max-width: 600px;        
-            max-height: 75vh;        
-            object-fit: contain;     
+        
+        /* Updated for Medium Logo */
+        .splash-logo {
+            width: 80vw;             
+            max-width: 250px; /* Medium size constraint */        
+            height: auto;     
             margin-bottom: 30px;
-            animation: gentle-pulse 3s infinite ease-in-out; 
-            /* This is the magic line that removes the white background: */
-            mix-blend-mode: multiply; 
+            animation: elegant-float 4s ease-in-out infinite; 
         }
+        
+        .splash-text {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+        
         #splash-screen.fade-away {
             opacity: 0;
             visibility: hidden;
         }
-        @keyframes gentle-pulse {
-            0% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.03); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.9; }
+
+        /* New sophisticated hover/float effect */
+        @keyframes elegant-float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0); }
         }
 
         /* --- THE PRISTINE HEADER --- */
@@ -184,7 +194,7 @@
 <body class="no-scroll">
 
     <div id="splash-screen">
-        <img src="images/splash.jpg" alt="Garnstuen Intro" class="splash-image">
+        <img src="images/logo.png" alt="Garnstuen Logo" class="splash-logo">
         <p class="splash-text">Forfiner hver en maske...</p>
     </div>
 
