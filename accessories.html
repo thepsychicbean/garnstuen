@@ -194,87 +194,38 @@
         </div>
     </header>
 
-    <main>
-        <svg viewBox="0 0 40 40" class="decorative-btn" style="top: 180px; left: 8%; width: 70px; transform: rotate(15deg);">
-            <rect fill="var(--text-dark)" x="0" y="0" width="40" height="40" rx="4" ry="4"/>
-            <rect fill="var(--bg-vellum)" x="4" y="4" width="32" height="32" rx="2" ry="2"/>
-            <circle fill="var(--text-dark)" cx="15" cy="15" r="3"/>
-            <circle fill="var(--text-dark)" cx="25" cy="25" r="3"/>
-        </svg>
-
-        <svg viewBox="0 0 60 60" class="decorative-btn" style="top: 350px; right: 5%; width: 110px; transform: rotate(-25deg);">
-            <circle fill="var(--text-dark)" cx="30" cy="30" r="28"/>
-            <circle fill="var(--bg-vellum)" cx="30" cy="30" r="24"/>
-            <circle fill="var(--text-dark)" cx="22" cy="22" r="3.5"/>
-            <circle fill="var(--text-dark)" cx="38" cy="22" r="3.5"/>
-            <circle fill="var(--text-dark)" cx="22" cy="38" r="3.5"/>
-            <circle fill="var(--text-dark)" cx="38" cy="38" r="3.5"/>
-        </svg>
-
-        <svg viewBox="0 0 40 20" class="decorative-btn" style="bottom: 120px; left: 6%; width: 80px; transform: rotate(40deg);">
-            <ellipse fill="var(--text-dark)" cx="20" cy="10" rx="20" ry="10"/>
-            <ellipse fill="var(--bg-vellum)" cx="20" cy="10" rx="17" ry="8"/>
-            <circle fill="var(--text-dark)" cx="13" cy="10" r="2.5"/>
-            <circle fill="var(--text-dark)" cx="27" cy="10" r="2.5"/>
-        </svg>
-
-        <section class="art-hero">
-            <svg viewBox="0 0 220 130" style="width: 100%; height: auto; display: block; overflow: visible; font-family: sans-serif;">
+   <main>
+        <section class="art-hero" style="padding: 60px 20px 0; max-width: 600px; margin: 0 auto;">
+            <svg viewBox="0 0 300 110" style="width: 100%; max-width: 350px; height: auto; display: block; margin: 0 auto; overflow: visible;">
                 <defs>
                     <style>
                         .st0 { fill: var(--text-dark); }
-                        .st1 { fill: none; stroke: #D4AF37; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-                        /* Using vellum background for inner shapes so it blends into the page */
+                        /* Thinner, more delicate stroke for the gold wire */
+                        .st1 { fill: none; stroke: var(--gold-accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
                         .st-inner { fill: var(--bg-vellum); }
                     </style>
                 </defs>
 
-                <g transform="translate(10, 20)">
+                <path class="st1" d="M 235 45 C 200 100, 140 110, 150 60 C 160 10, 100 20, 110 60 C 115 80, 80 80, 60 55" />
+
+                <g transform="translate(30, 15)">
                     <path class="st0" d="M12,45 C12,50, 16,54, 21,54 C26,54, 30,50, 30,45 L30,35 C30,30, 26,26, 21,26 C16,26, 12,30, 12,35 Z"/>
                     <path class="st0" d="M35,35 C35,30, 39,26, 44,26 C49,26, 53,30, 53,35 L53,45 C53,50, 49,54, 44,54 C39,54, 35,50, 35,45 Z"/>
                     <circle class="st-inner" cx="21" cy="40" r="4"/>
                     <circle class="st-inner" cx="44" cy="40" r="4"/>
-                    <circle class="st0" cx="32.5" cy="18" r="2.5"/>
+                    <circle class="st0" cx="32.5" cy="18" r="2"/>
                     <path class="st0" d="M30,22 L10,85 L15,85 L32.5,22 Z"/>
                     <path class="st0" d="M35,22 L55,85 L50,85 L32.5,22 Z"/>
                 </g>
 
-                <g transform="translate(110, 65)">
-                    <circle class="st0" cx="30" cy="30" r="28"/>
-                    <circle class="st-inner" cx="30" cy="30" r="24"/>
-                    <circle class="st0" cx="22" cy="22" r="3.5"/>
-                    <circle class="st0" cx="38" cy="22" r="3.5"/>
-                    <circle class="st0" cx="22" cy="38" r="3.5"/>
-                    <circle class="st0" cx="38" cy="38" r="3.5"/>
+                <g transform="translate(220, 35)">
+                    <circle class="st0" cx="20" cy="20" r="20"/>
+                    <circle class="st-inner" cx="20" cy="20" r="16"/>
+                    <circle class="st0" cx="14" cy="14" r="2.5"/>
+                    <circle class="st0" cx="26" cy="14" r="2.5"/>
+                    <circle class="st0" cx="14" cy="26" r="2.5"/>
+                    <circle class="st0" cx="26" cy="26" r="2.5"/>
                 </g>
-                
-                <g transform="translate(60, 100)">
-                    <rect class="st0" x="0" y="0" width="40" height="40" rx="4" ry="4"/>
-                    <rect class="st-inner" x="4" y="4" width="32" height="32" rx="2" ry="2"/>
-                    <circle class="st0" cx="15" cy="15" r="3"/>
-                    <circle class="st0" cx="25" cy="25" r="3"/>
-                </g>
-                
-                <g transform="translate(140, 30)">
-                    <ellipse class="st0" cx="20" cy="10" rx="20" ry="10"/>
-                    <ellipse class="st-inner" cx="20" cy="10" rx="17" ry="8"/>
-                    <circle class="st0" cx="13" cy="10" r="2.5"/>
-                    <circle class="st0" cx="27" cy="10" r="2.5"/>
-                </g>
-                
-                <g transform="translate(20, 100)">
-                    <circle class="st0" cx="10" cy="10" r="10"/>
-                    <circle class="st-inner" cx="10" cy="10" r="8"/>
-                    <circle class="st0" cx="7" cy="10" r="1.5"/>
-                    <circle class="st0" cx="13" cy="10" r="1.5"/>
-                </g>
-
-                <path class="st1" d="M25,35 C30,25, 45,20, 60,25 C75,30, 85,40, 95,50 C105,60, 115,55, 125,50 C135,45, 145,50, 150,60 L145,65 
-                                  C138,58, 128,55, 118,60 C108,65, 100,75, 95,85 C90,95, 80,105, 70,110 C60,115, 50,110, 45,100 C40,90, 42,80, 45,70 
-                                  C48,60, 55,50, 65,45 C75,40, 85,42, 95,48 C105,54, 115,50, 125,45 C135,40, 145,42, 150,50 L155,45 
-                                  C150,38, 140,35, 130,38 C120,41, 112,48, 105,55 C98,62, 90,68, 82,72 C74,76, 66,75, 58,72 C50,69, 42,62, 35,55 C28,48, 22,40, 18,32 
-                                  C14,24, 15,16, 20,10 C25,4, 35,2, 45,5 C55,8, 65,15, 75,25 C85,35, 95,45, 105,55 C115,65, 125,60, 135,55 C145,50, 155,55, 165,60 C175,65, 185,60, 195,55 L190,50
-                                  C180,55, 170,58, 160,52 C150,46, 142,38, 135,30 C128,22, 120,15, 110,10 C100,5, 90,5, 80,10 C70,15, 60,25, 50,35 C40,45, 30,55, 20,65 C10,75, 5,85, 8,95 C11,105, 18,112, 28,115 C38,118, 48,115, 58,110 C68,105, 78,95, 85,85 C92,75, 100,68, 108,62 C116,56, 124,53, 132,54 C140,55, 148,60, 156,66 C164,72, 172,78, 180,82 C188,86, 196,88, 204,86 C212,84, 218,78, 218,70 L213,65 Z"/>
             </svg>
         </section>
 
