@@ -60,16 +60,17 @@
             margin-top: 15px;
         }
 
-        /* --- RESERVATION FORM STYLES --- */
+        /* --- RESERVATION FORM STYLES (NOW WITH ELEGANT FRAME) --- */
         .reserve-container {
             background-color: white;
-            border: 1px solid #EFECE6;
             padding: 60px 40px;
             max-width: 600px;
             width: 100%;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.03);
             position: relative;
+            /* Outer Chamfered Corners */
+            clip-path: polygon(30px 0, calc(100% - 30px) 0, 100% 30px, 100% calc(100% - 30px), calc(100% - 30px) 100%, 30px 100%, 0 calc(100% - 30px), 0 30px);
         }
         
         .reserve-container::after {
@@ -78,6 +79,8 @@
             inset: 6px;
             border: 1px solid var(--gold-accent);
             pointer-events: none;
+            /* Inner Chamfered Corners perfectly parallel to outer */
+            clip-path: polygon(24px 0, calc(100% - 24px) 0, 100% 24px, 100% calc(100% - 24px), calc(100% - 24px) 100%, 24px 100%, 0 calc(100% - 24px), 0 24px);
         }
 
         .reserve-container h1 { font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 10px; font-weight: 400; }
@@ -202,13 +205,20 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="phone">Telefonnummer</label>
+                    <input type="tel" id="phone" placeholder="F.eks. 12 34 56 78" required>
+                </div>
+
+                <div class="form-group">
                     <label for="date">Ønsket Afhentningsdag</label>
                     <select id="date">
+                        <option>Mandag (10:00 - 17:30)</option>
                         <option>Tirsdag (10:00 - 17:30)</option>
                         <option>Onsdag (10:00 - 17:30)</option>
                         <option>Torsdag (10:00 - 18:00)</option>
                         <option>Fredag (10:00 - 17:30)</option>
                         <option>Lørdag (10:00 - 14:00)</option>
+                        <option>Søndag (Efter aftale)</option>
                     </select>
                 </div>
 
