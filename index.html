@@ -24,49 +24,19 @@
         main { flex: 1; }
 
         /* Prevent scrolling while splash screen is active */
-        .no-scroll {
-            overflow: hidden;
-        }
+        .no-scroll { overflow: hidden; }
 
         /* --- SPLASH SCREEN STYLES --- */
         #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: var(--bg-vellum);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-color: var(--bg-vellum); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 9999;
             transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
         }
-        
-        /* Updated for Medium Logo */
-        .splash-logo {
-            width: 80vw;             
-            max-width: 250px; /* Medium size constraint */        
-            height: auto;     
-            margin-bottom: 30px;
-            animation: elegant-float 4s ease-in-out infinite; 
-        }
-        
-        .splash-text {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-        
-        #splash-screen.fade-away {
-            opacity: 0;
-            visibility: hidden;
-        }
+        .splash-logo { width: 80vw; max-width: 250px; height: auto; margin-bottom: 30px; animation: elegant-float 4s ease-in-out infinite; }
+        .splash-text { font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-dark); font-style: italic; letter-spacing: 1px; }
+        #splash-screen.fade-away { opacity: 0; visibility: hidden; }
 
-        /* New sophisticated hover/float effect */
         @keyframes elegant-float {
             0% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
@@ -75,34 +45,16 @@
 
         /* --- THE PRISTINE HEADER --- */
         header { 
-            padding: 20px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            background-color: var(--bg-vellum);
-            position: relative;
-            z-index: 1000;
+            padding: 20px 5%; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-vellum); position: relative; z-index: 1000;
         }
-        .logo img { 
-            max-height: 80px; 
-            width: auto; 
-            display: block; 
-        }
+        .logo img { max-height: 80px; width: auto; display: block; }
         
-        .nav-links { 
-            display: flex; 
-            gap: 25px; 
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            font-weight: 500; 
-            transition: all 0.3s ease;
-        }
+        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
         .nav-links a:hover { color: #C5A371; }
 
         .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
-        
         .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
 
@@ -116,9 +68,72 @@
         .btn-elegant { display: inline-block; border: 1px solid var(--text-dark); padding: 15px 40px; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transition: all 0.3s ease; cursor: pointer; }
         .btn-elegant:hover { background-color: var(--text-dark); color: var(--bg-vellum); }
 
+        /* --- WELCOME TEXT SECTION --- */
+        .welcome-section { text-align: center; max-width: 800px; margin: 80px auto 40px; padding: 0 20px; }
+        .welcome-section p { font-size: 1.05rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 20px; }
+        .welcome-signature { font-family: var(--font-serif); font-size: 1.8rem !important; font-style: italic; color: var(--text-dark) !important; margin-top: 30px; }
+
+        /* --- BRAND VALUES BAR --- */
+        .values-section { display: flex; justify-content: space-around; padding: 60px 5%; max-width: 1200px; margin: 0 auto 60px; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .value-item { text-align: center; max-width: 250px; }
+        .value-item svg { width: 32px; height: 32px; fill: var(--gold-accent); margin-bottom: 15px; }
+        .value-item h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; }
+        .value-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* --- FIBER JOURNEY SECTION --- */
+        .fiber-journey { 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px; 
+            padding: 80px 5%; 
+            max-width: 1200px; 
+            margin: 40px auto 80px; 
+            align-items: center; 
+        }
+        
+        .journey-image { 
+            width: 100%; 
+            aspect-ratio: 3/4;
+            background-size: cover; 
+            background-position: center; 
+            border-radius: 2px; 
+            box-shadow: -25px 25px 0px rgba(197, 163, 113, 0.15); 
+        }
+
+        .journey-content { max-width: 550px; }
+        
+        .journey-content h2 { 
+            font-family: var(--font-serif); 
+            font-size: 3.2rem; 
+            font-weight: 400; 
+            margin-bottom: 30px; 
+            line-height: 1.1; 
+            color: var(--text-dark);
+        }
+        
+        .journey-content p { 
+            font-size: 1.05rem; 
+            line-height: 1.9; 
+            color: var(--text-muted); 
+            margin-bottom: 25px; 
+        }
+        
+        .journey-cta { 
+            display: inline-block; 
+            margin-top: 20px; 
+            font-family: var(--font-serif); 
+            font-size: 1.5rem; 
+            font-style: italic; 
+            color: var(--text-dark); 
+            border-bottom: 1px solid var(--gold-accent); 
+            padding-bottom: 5px; 
+            transition: opacity 0.3s;
+        }
+        .journey-cta:hover { opacity: 0.7; }
+
         /* --- FEATURED PRODUCTS --- */
         .section-title { text-align: center; font-family: var(--font-serif); font-size: 2.8rem; margin: 80px 0 40px; font-weight: 400; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 5% 100px; max-width: 1400px; margin: 0 auto; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 5% 60px; max-width: 1400px; margin: 0 auto; }
         .product-card { text-align: left; cursor: pointer; }
         .img-placeholder { width: 100%; aspect-ratio: 4/5; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; position: relative; clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); border: 1px solid #d4cbb3; background-size: cover; background-position: center; transition: transform 0.4s ease; }
         .img-placeholder::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--gold-accent); clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); pointer-events: none; }
@@ -126,31 +141,18 @@
         .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin-top: 10px; }
         .price { display: block; margin-top: 5px; font-size: 0.9rem; color: var(--text-muted); }
 
-        /* --- WELCOME TEXT SECTION --- */
-        .welcome-section {
-            text-align: center;
-            max-width: 800px;
-            margin: 80px auto; 
-            padding: 0 20px;
-        }
-        
-        .welcome-section p {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+        /* --- NEWSLETTER SECTION --- */
+        .newsletter-section { background-color: #EFECE6; text-align: center; padding: 80px 5%; margin-top: 40px; }
+        .newsletter-section h2 { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 400; margin-bottom: 15px; }
+        .newsletter-section p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 15px 20px; border: 1px solid rgba(0,0,0,0.1); font-family: var(--font-sans); background: transparent; outline: none; transition: border 0.3s; }
+        .newsletter-form input:focus { border-color: var(--gold-accent); }
+        .newsletter-form button { padding: 15px 30px; background-color: var(--text-dark); color: var(--bg-vellum); border: none; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; cursor: pointer; transition: background 0.3s; }
+        .newsletter-form button:hover { background-color: #1a1a1a; }
 
-        .welcome-signature {
-            font-family: var(--font-serif);
-            font-size: 1.8rem !important;
-            font-style: italic;
-            color: var(--text-dark) !important;
-            margin-top: 30px;
-        }
-        
         /* --- THE RICH FOOTER --- */
-        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
+        footer { background-color: #EFECE6; padding: 20px 5% 40px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
         .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
         .footer-col p, .footer-col ul { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
@@ -169,25 +171,26 @@
 
         /* Mobile Adjustments */
         @media (max-width: 1024px) {
-            header { 
-                justify-content: center; 
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
+            header { justify-content: center; padding: 15px 5%; }
             .header-actions { position: absolute; right: 5%; }
             .header-actions > a { display: none; }
             .logo img { max-height: 90px; }
             .hero { grid-template-columns: 1fr; gap: 30px; padding: 40px 5%; }
             .hero-image { height: 320px; order: -1; }
-            
             .hero-text { text-align: center; display: flex; flex-direction: column; align-items: center; }
             .hero-text h1 { font-size: 2.4rem; margin-bottom: 10px; }
             .hero-text .en-subtitle { font-size: 1.8rem; margin-bottom: 20px; }
-            .hero-text p { max-width: 100%; }
-            
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
+            
+            .values-section { flex-direction: column; align-items: center; gap: 40px; border: none; }
+            .newsletter-form { flex-direction: column; gap: 10px; }
+            
+            /* Mobile Journey Adjustments */
+            .fiber-journey { grid-template-columns: 1fr; gap: 50px; text-align: center; padding: 40px 5%; }
+            .journey-content { margin: 0 auto; }
+            .journey-image { aspect-ratio: 4/3; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
         }
     </style>
 </head>
@@ -237,6 +240,36 @@
             <p class="welcome-signature">Vi glæder os til at betjene dig!</p>
         </section>
 
+        <section class="values-section">
+            <div class="value-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                <h4>Håndplukket Kvalitet</h4>
+                <p>Vi rejser Europa rundt for at finde de fineste og mest ansvarligt producerede naturfibre til dine projekter.</p>
+            </div>
+            <div class="value-item">
+                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <h4>Personlig Rådgivning</h4>
+                <p>Har du brug for hjælp til opskrifter eller farvevalg? Vi deler vores faglige viden og passion for strik.</p>
+            </div>
+            <div class="value-item">
+                <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                <h4>Lokal & Digital</h4>
+                <p>Udforsk sortimentet online og benyt vores Reservation for at afhente i ro og mag i butikken på Østerbrogade.</p>
+            </div>
+        </section>
+
+        <section class="fiber-journey">
+            <div class="journey-image" style="background-image: url('https://images.unsplash.com/photo-1605284566373-c15c57173e1c?auto=format&fit=crop&q=80&w=1000');"></div>
+            
+            <div class="journey-content">
+                <h2>Fibrenes Fortælling</h2>
+                <p>Vi forhandler ikke blot garn; vi sporer dets ophav. Før en ny kvalitet overhovedet finder vej til vores hylder, har vi personligt haft utallige prøver i hænderne for at teste spændstigheden og sikre den kompromisløse kvalitet.</p>
+                <p>Men materialet får først for alvor sjæl, når det møder dig. For os er butikken ikke bare et sted med garn – det er et rum fyldt med nærvær. Vi elsker de stunder, vi deler over disken; at lytte til jeres drømme og dele vores egne. Mens snakken går, bliver jeres og vores historier usynligt strikket sammen med de tråde, I ender med at tage med hjem.</p>
+                <p>Kom forbi vores atelier. Mærk den varme stemning, og fornem det naturlige lanolin mellem fingrene, længe før dit næste mesterværk overhovedet er begyndt.</p>
+                <a href="about.html" class="journey-cta">Læs mere om vores håndværk...</a>
+            </div>
+        </section>
+
         <h2 class="section-title">En Palet af Pasteller</h2>
         <div class="product-grid">
             
@@ -259,6 +292,16 @@
             </div>
 
         </div>
+
+        <section class="newsletter-section">
+            <h2>Bliv en del af Strikkeklubben</h2>
+            <p>Skriv dig op til vores nyhedsbrev og få invitationer til eksklusive events i butikken, nye strikkeopskrifter og besked, når vi får spændende nye garnkvaliteter hjem.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Tak for din tilmelding!');">
+                <input type="email" placeholder="Din e-mailadresse..." required>
+                <button type="submit">Tilmeld</button>
+            </form>
+        </section>
+
     </main>
 
     <footer>
