@@ -36,25 +36,21 @@
         /* --- LEGAL CONTENT STYLES --- */
         .legal-content {
             max-width: 800px;
-            margin: 0 auto 100px;
+            margin: 80px auto 100px;
             padding: 0 5%;
         }
-
-        /* --- PRIVACY ILLUSTRATION --- */
-        .privacy-illustration {
-            width: 100%;
-            aspect-ratio: 16 / 9; /* Matching the generated illustration aspect */
-            margin: 40px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-color: transparent;
-            /* Using the golden line art generation */
-            background-image: url('images/privacy-key.png'); /* Swapping the Unsplash link for your artisan graphic */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+        
+        /* --- GOLDEN LINE ART ICON --- */
+        .privacy-icon {
+            width: 65px;
+            height: 65px;
+            display: block;
+            margin: 0 auto 25px;
+            stroke: var(--gold-accent);
+            stroke-width: 1.2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .legal-content h1 {
@@ -124,7 +120,7 @@
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
             .legal-content h1 { font-size: 2.5rem; }
-            .privacy-illustration { margin: 20px auto; aspect-ratio: 16 / 9; background-size: contain; width: 90%; }
+            .privacy-icon { width: 50px; height: 50px; }
         }
     </style>
 </head>
@@ -152,7 +148,9 @@
 
     <main>
         <div class="legal-content">
-            <div class="privacy-illustration"></div>
+            <svg class="privacy-icon" viewBox="0 0 24 24">
+                <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+            </svg>
 
             <h1>Persondatapolitik for Garnstuen</h1>
             <p class="intro">Hos Garnstuen vægter vi det gode håndværk og den personlige relation højt. Det gælder også, når det kommer til beskyttelse af dine personoplysninger. Her kan du læse, hvordan vi trygt og ansvarligt behandler de oplysninger, du deler med os.</p>
