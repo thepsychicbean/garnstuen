@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strikkeklub | Garnstuen.dk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL THEME STYLES --- */
+        :root {
+            --bg-vellum: #F9F7F2;
+            --text-dark: #3E3A35;
+            --text-muted: #7A7A7A;
+            --gold-accent: rgba(197, 163, 113, 0.6);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-vellum); color: var(--text-dark); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+        main { flex: 1; }
+
+        /* --- THE PRISTINE HEADER --- */
+        header { 
+            padding: 20px 5%; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-vellum); position: relative; z-index: 1000;
+        }
+        .logo img { max-height: 80px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-links a:hover { color: #C5A371; }
+        .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
+        .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
+
+        /* --- CLUB HERO SECTION --- */
+        .club-hero {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&q=80&w=1600'); /* Warm gathering placeholder */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .club-hero::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(62, 58, 53, 0.4); /* Dark overlay for text readability */
+        }
+        .club-hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--bg-vellum);
+            padding: 0 20px;
+        }
+        .club-hero h1 { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 400; margin-bottom: 10px; }
+        .club-hero p { font-family: var(--font-serif); font-size: 1.8rem; font-style: italic; letter-spacing: 1px; color: #EFECE6; }
+
+        /* --- PHILOSOPHY SECTION --- */
+        .philosophy-section {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 0 5%;
+            text-align: center;
+        }
+        .philosophy-section h2 { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; margin-bottom: 25px; color: var(--text-dark); }
+        .philosophy-section p { font-size: 1.1rem; line-height: 2; color: var(--text-muted); margin-bottom: 20px; }
+        
+        .divider-svg { display: block; margin: 40px auto; width: 100px; opacity: 0.5; }
+
+        /* --- THE NOTICEBOARD (EVENTS) --- */
+        .noticeboard {
+            max-width: 1000px;
+            margin: 0 auto 100px;
+            padding: 0 5%;
+        }
+        
+        .event-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 40px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.15);
+        }
+        .event-card:last-child { border-bottom: none; }
+        
+        .event-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            border: 1px solid var(--gold-accent);
+            flex-shrink: 0;
+            color: var(--text-dark);
+        }
+        .event-date .day { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1; margin-bottom: 5px; }
+        .event-date .month { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+
+        .event-details { flex: 1; }
+        .event-details h3 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin-bottom: 10px; color: var(--text-dark); }
+        .event-time { display: inline-block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); margin-bottom: 15px; font-weight: 500; }
+        .event-details p { font-size: 1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px; }
+        
+        .btn-rsvp { display: inline-block; padding: 10px 0; color: var(--text-dark); font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; border-bottom: 1px solid var(--text-dark); transition: opacity 0.3s; cursor: pointer; }
+        .btn-rsvp:hover { opacity: 0.6; }
+
+        /* --- THE RICH FOOTER --- */
+        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
+        .footer-col p, .footer-col ul { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; cursor: pointer; transition: color 0.3s ease; }
+        .footer-col ul li:hover { color: var(--text-dark); }
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
+        .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white !important; padding: 10px 20px; border-radius: 4px; font-weight: 500; margin-top: 15px; transition: background 0.3s; }
+        .whatsapp-btn:hover { background-color: #128C7E; }
+        .whatsapp-btn svg { fill: white; width: 18px; height: 18px; margin: 0; }
+        .map-link { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 2px; font-weight: 500; }
+        .footer-logo { max-height: 80px; margin: 0 auto 20px auto; display: block; opacity: 0.8; transition: opacity 0.3s ease; }
+        .footer-logo:hover { opacity: 1; }
+        .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            header { justify-content: center; padding: 15px 5%; }
+            .header-actions { position: absolute; right: 5%; }
+            .header-actions > a { display: none; }
+            .logo img { max-height: 75px; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
+            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .menu-toggle { display: flex; }
+            
+            .club-hero h1 { font-size: 3rem; }
+            .club-hero p { font-size: 1.4rem; }
+            
+            .event-card { flex-direction: column; gap: 20px; align-items: flex-start; padding: 30px 0; }
+            .event-date { width: 80px; height: 80px; }
+            .event-date .day { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Garnstuen Logo">
+        </a>
+        <nav class="nav-links" id="nav-menu">
+            <a href="yarn.html">Garn</a>
+            <a href="needles.html">Strikkepinde & Hæklenåle</a>
+            <a href="accessories.html">Tilbehør & Knapper</a>
+            <a href="books.html">Bøger & Opskrifter</a>
+            <a href="assortment.html">Sortiment</a>
+            <a href="reserve.html" style="display: none;" id="mobile-reserve">Reservationer</a>
+        </nav>
+        <div class="header-actions">
+            <a href="reserve.html">Reservationer</a>
+            <div class="menu-toggle" id="mobile-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="club-hero">
+            <div class="club-hero-content">
+                <h1>Strikkeklubben</h1>
+                <p>Sammen om hver en maske.</p>
+            </div>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Butikkens Hjerte</h2>
+            <p>At skabe noget med hænderne er en personlig rejse, men det behøver aldrig at være en ensom en. For os er Garnstuen ikke blot et atelier fyldt med tråde; det er et rum fyldt med historier, der venter på at blive fortalt.</p>
+            <p>Vores Strikkeklub er en åben invitation til dig. Uanset om du søger råd til en svær hæl, inspiration til dit næste farvevalg, eller blot længes efter lyden af andres pinde, der klikker i takt med dine egne. Kom ind i varmen, slå dig ned, og lad os lytte til dine drømme over disken.</p>
+            
+            <svg class="divider-svg" viewBox="0 0 100 20">
+                <path fill="none" stroke="var(--gold-accent)" stroke-width="1.5" stroke-linecap="round" d="M0,10 Q25,20 50,10 T100,10" />
+            </svg>
+        </section>
+
+        <section class="noticeboard">
+            
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">14</span>
+                    <span class="month">Nov</span>
+                </div>
+                <div class="event-details">
+                    <h3>Fredagsstrik & Fordybelse</h3>
+                    <span class="event-time">Fredag kl. 15:00 - 17:30 i Atelieret</span>
+                    <p>Vi runder ugen af med varm kaffe på kanden og ro i krogene. Tag dit seneste projekt med, uanset om det er på pind 3 eller 10. Vi deler erfaringer, griner af tabte masker, og nyder hinandens selskab. Ingen tilmelding nødvendig – bare mød op.</p>
+                    <a href="https://wa.me/1234567890" class="btn-rsvp" target="_blank">Skriv til os, hvis du kommer</a>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">28</span>
+                    <span class="month">Nov</span>
+                </div>
+                <div class="event-details">
+                    <h3>Masterclass: Perfekt Montering</h3>
+                    <span class="event-time">Torsdag kl. 16:00 - 17:30 i Atelieret</span>
+                    <p>Mange frygter at montere den færdige sweater, men det er her, magien for alvor sker. Vi samles om disken, og vi gennemgår teknikker til usynlige sømme, pæne skuldre og opsamling af halskanter, der sidder lige i skabet.</p>
+                    <a href="https://wa.me/1234567890" class="btn-rsvp" target="_blank">Reserver en plads via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">05</span>
+                    <span class="month">Dec</span>
+                </div>
+                <div class="event-details">
+                    <h3>Morgenkaffe & Farvevalg</h3>
+                    <span class="event-time">Lørdag kl. 10:00 - 12:00 i Atelieret</span>
+                    <p>Står du foran et nyt projekt, men mangler modet til at sætte farverne sammen? Vi starter weekenden blidt med at lege med paletter. Vi blander mohair med uld, tester kontraster og lader sanserne råde, indtil vi finder dit helt rigtige udtryk.</p>
+                    <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="btn-rsvp" target="_blank">Find Vej til Garnstuen</a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Besøg Butikken</h4>
+                <div class="footer-icon-text">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK</p>
+                </div>
+                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="map-link" target="_blank" rel="noopener noreferrer">Find Vej</a>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Kontakt Os</h4>
+                <p>Har du brug for hjælp til at finde det rette garn eller matche en strikkefasthed? Skriv direkte til os.</p>
+                <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    Skriv på WhatsApp
+                </a>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="about.html">Om Os</a></li>
+                    <li><a href="club.html">Strikkeklub</a></li>
+                    <li><a href="#">Fragt & Returnering</a></li>
+                    <li><a href="#">Persondatapolitik</a></li>
+                </ul>
+            </div>
+        </div> 
+        
+        <div class="footer-bottom">
+            <a href="index.html">
+                <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-logo">
+            </a>
+            <p>Daph9&GPS© 2026. Forfiner hver en maske.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileReserve = document.getElementById('mobile-reserve');
+        
+        mobileToggle.addEventListener('click', () => { 
+            navMenu.classList.toggle('active'); 
+            if(navMenu.classList.contains('active')) {
+                mobileReserve.style.display = 'block';
+            } else {
+                mobileReserve.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
