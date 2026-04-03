@@ -88,6 +88,19 @@
         .product-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; line-height: 1.4; }
         .price { display: block; margin-top: 8px; font-size: 0.95rem; color: var(--text-dark); }
 
+        /* --- IMAGE LIGHTBOX MODAL --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(62, 58, 53, 0.95); align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal.show { display: flex; opacity: 1; }
+        .modal-content { position: relative; width: 90%; max-width: 500px; aspect-ratio: 4/5; }
+        .modal-img-frame { width: 100%; height: 100%; background-size: cover; background-position: center; clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%); }
+        .modal-img-frame::after { content: ""; position: absolute; inset: 8px; border: 2px solid var(--gold-accent); clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%); pointer-events: none; }
+        .close-modal { position: absolute; top: -50px; right: 0; color: var(--bg-vellum); font-size: 40px; font-family: var(--font-sans); font-weight: 300; cursor: pointer; transition: color 0.3s; }
+        .close-modal:hover { color: var(--gold-accent); }
+
         /* --- THE RICH FOOTER --- */
         footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: 100px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
@@ -159,33 +172,29 @@
 
         <div class="product-grid" style="padding: 40px 5% 100px; max-width: 1400px; margin: 0 auto;">
             
-            <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/6939330173284533300_0');">
-                </div>
+            <div class="product-card" onclick="openModal('images/circular-needles.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/circular-needles.jpeg');"></div>
                 <div class="product-meta">Addi Nature | Rundpinde</div>
                 <div class="product-desc">Let og glat oliventræ | 80 cm wire</div>
                 <span class="price">Fra DKK 65,00</span>
             </div>
 
-            <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/12072833805972509662_0');">
-                </div>
+            <div class="product-card" onclick="openModal('images/crochet-hooks.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/crochet-hooks.jpeg');"></div>
                 <div class="product-meta">Tulip Etimo | Rose Hæklenål</div>
                 <div class="product-desc">Ergonomisk greb | Perfekt til detaljeret arbejde</div>
                 <span class="price">Fra DKK 85,00</span>
             </div>
 
-            <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/11717630447270976814_0');">
-                </div>
+            <div class="product-card" onclick="openModal('images/lace-thread.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/lace-thread.jpeg');"></div>
                 <div class="product-meta">Merceriseret Bomuldstråd</div>
                 <div class="product-desc">Fint hæklegarn | Skinnende finish til blonder</div>
                 <span class="price">DKK 32,00 (50g)</span>
             </div>
             
-             <div class="product-card">
-                <div class="img-placeholder" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/7703086349484582436_0');">
-                </div>
+             <div class="product-card" onclick="openModal('images/bamboo-needles.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/bamboo-needles.jpeg');"></div>
                 <div class="product-meta">Bambus Strømpepinde</div>
                 <div class="product-desc">Sæt af 5 | Varme hænder og maskekontrol</div>
                 <span class="price">Fra DKK 55,00</span>
@@ -193,6 +202,13 @@
 
         </div>
     </main>
+
+    <div id="image-modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal(event)">×</span>
+            <div id="modal-img-display" class="modal-img-frame"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-grid">
@@ -244,6 +260,27 @@
                 mobileReserve.style.display = 'none';
             }
         });
+
+        // --- MODAL LOGIC ---
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img-display');
+
+        function openModal(imageSrc) {
+            modalImg.style.backgroundImage = `url('${imageSrc}')`;
+            modal.style.display = 'flex';
+            setTimeout(() => { modal.classList.add('show'); }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event.target === modal || event.target.classList.contains('close-modal')) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+        }
     </script>
 </body>
 </html>
