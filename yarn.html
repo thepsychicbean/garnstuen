@@ -73,7 +73,6 @@
             margin: 0;
         }
         
-        /* The new complex, spreading golden thread banner */
         .intro-section .knit-art-banner {
             width: 100%;
             max-width: 100%;
@@ -106,6 +105,7 @@
             border: 1px solid #d4cbb3; 
             background-size: cover;
             background-position: center;
+            background-color: #EFECE6; /* Fallback color */
             transition: transform 0.4s ease; 
         }
         
@@ -120,7 +120,8 @@
         
         .product-card:hover .img-placeholder { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
         .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin-top: 10px; }
-        .price { display: block; margin-top: 5px; font-size: 0.9rem; color: var(--text-muted); }
+        .product-desc { font-size: 0.9rem; color: var(--text-muted); margin-top: 5px; line-height: 1.4; }
+        .price { display: block; margin-top: 8px; font-size: 0.95rem; color: var(--text-dark); }
 
         /* --- THE RICH FOOTER --- */
         footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: 100px; }
@@ -196,37 +197,35 @@
         </div>
 
         <div class="product-grid">
+            
             <div class="product-card">
-                <div class="img-placeholder" style="background-color: #849684;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="opacity: 0.8;" alt="Sage Yarn">
-                </div>
+                <div class="img-placeholder" style="background-image: url('images/sandnes-sunday-sage.jpg');"></div>
                 <div class="product-meta">Sandnes | Double Sunday</div>
+                <div class="product-desc">100% Merino Uld | Støvet Grøn</div>
                 <span class="price">DKK 45,00</span>
             </div>
 
             <div class="product-card">
-                <div class="img-placeholder" style="background-color: #7C7A75;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="filter: grayscale(1); opacity: 0.8;" alt="Charcoal Yarn">
-                </div>
+                <div class="img-placeholder" style="background-image: url('images/filcolana-arwetta-charcoal.jpg');"></div>
                 <div class="product-meta">Filcolana | Arwetta Classic</div>
+                <div class="product-desc">80% Merino, 20% Nylon | Koksgrå</div>
                 <span class="price">DKK 38,00</span>
             </div>
 
             <div class="product-card">
-                <div class="img-placeholder" style="background-color: #A89684;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="filter: sepia(0.5); opacity: 0.8;" alt="Taupe Yarn">
-                </div>
+                <div class="img-placeholder" style="background-image: url('images/olive-merino-taupe.jpg');"></div>
                 <div class="product-meta">Knitting for Olive | Merino</div>
+                <div class="product-desc">100% Oeko-Tex Merino | Taupe</div>
                 <span class="price">DKK 50,00</span>
             </div>
             
              <div class="product-card">
-                <div class="img-placeholder" style="background-color: #E1E6E8;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6122/6122858.png" width="120" style="filter: hue-rotate(180deg); opacity: 0.8;" alt="Blue Yarn">
-                </div>
+                <div class="img-placeholder" style="background-image: url('images/gepard-kidseta-blue.jpg');"></div>
                 <div class="product-meta">Gepard | Kid Seta</div>
+                <div class="product-desc">70% Super Kid Mohair, 30% Silke | Støvet Blå</div>
                 <span class="price">DKK 65,00</span>
             </div>
+
         </div>
     </main>
 
