@@ -39,8 +39,11 @@
             transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
         }
         .splash-image {
-            max-width: 250px;
-            margin-bottom: 20px;
+            width: 90vw;             /* Takes up 90% of the screen width on mobile */
+            max-width: 600px;        /* Prevents it from getting too massive on a wide desktop */
+            max-height: 75vh;        /* Ensures it never gets taller than the screen itself */
+            object-fit: contain;     /* Keeps the image perfectly proportioned without stretching */
+            margin-bottom: 30px;
             animation: gentle-pulse 3s infinite ease-in-out; 
         }
         .splash-text {
