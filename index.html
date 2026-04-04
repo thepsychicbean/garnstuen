@@ -92,13 +92,11 @@
         }
         
         .journey-image { 
-            width: 100%; 
-            aspect-ratio: 3/4;
-            background-size: cover; 
-            background-position: center; 
-            border-radius: 2px; 
-            box-shadow: -25px 25px 0px rgba(197, 163, 113, 0.15); 
-        }
+                mix-blend-mode: multiply; /* Melts the image into the background */
+                margin-top: -20px; /* Pulls it up to fix the gap */
+                width: 100%;
+                aspect-ratio: auto;
+            }
 
         .journey-content { max-width: 550px; }
         
