@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garnstuen.dk | Eksklusivt Garn & Tilbehør</title>
+    <title>Curated Yarns | Garnstuen.dk</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* --- GLOBAL THEME STYLES --- */
@@ -12,9 +12,7 @@
             --text-dark: #3E3A35;
             --text-muted: #7A7A7A;
             --gold-accent: rgba(197, 163, 113, 0.6);
-            --pastel-sage: #849684;
-            --pastel-charcoal: #7C7A75;
-            --pastel-taupe: #A89684;
+            --solid-gold: #C5A371;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -23,165 +21,219 @@
         a { text-decoration: none; color: inherit; }
         main { flex: 1; }
 
-        /* Prevent scrolling while splash screen is active */
-        .no-scroll { overflow: hidden; }
-
-        /* --- SPLASH SCREEN STYLES --- */
-        #splash-screen {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background-color: var(--bg-vellum); display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 9999;
-            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
-        }
-        .splash-logo { width: 80vw; max-width: 250px; height: auto; margin-bottom: 30px; animation: elegant-float 4s ease-in-out infinite; }
-        .splash-text { font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-dark); font-style: italic; letter-spacing: 1px; }
-        #splash-screen.fade-away { opacity: 0; visibility: hidden; }
-
-        @keyframes elegant-float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0); }
-        }
-
         /* --- THE PRISTINE HEADER --- */
         header { 
-            padding: 20px 5%; display: flex; justify-content: space-between; 
-            align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
-            background-color: var(--bg-vellum); position: relative; z-index: 1000;
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-vellum);
+            position: relative;
+            z-index: 1000;
         }
-        .logo img { max-height: 80px; width: auto; display: block; }
+        .logo img { 
+            max-height: 80px; 
+            width: auto; 
+            display: block; 
+        }
         
-        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-links { 
+            display: flex; 
+            gap: 25px; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 500; 
+            transition: all 0.3s ease;
+        }
         .nav-links a:hover { color: #C5A371; }
+        .nav-links a.active-link { color: #C5A371; }
 
         .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+
         .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
 
-        /* --- THE ELEGANT DIVIDER --- */
-        .elegant-divider {
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
-            width: 40%;
-            max-width: 250px;
-            margin: 80px auto;
-            opacity: 0.5;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 60px 5%; max-width: 1400px; margin: 0 auto; align-items: center; }
-        .hero-image { width: 100%; height: 550px; background-size: cover; background-position: center; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-radius: 2px; }
-        .hero-text h1 { font-family: var(--font-serif); font-size: 4rem; font-weight: 400; line-height: 1.1; margin-bottom: 15px; }
-        .hero-text .en-subtitle { font-family: var(--font-serif); font-size: 2.2rem; color: #A89684; font-style: italic; margin-bottom: 25px; display: block; }
-        .hero-text p { font-size: 1rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8; max-width: 90%; }
-        
-        .btn-elegant { display: inline-block; border: 1px solid var(--text-dark); padding: 15px 40px; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transition: all 0.3s ease; cursor: pointer; }
-        .btn-elegant:hover { background-color: var(--text-dark); color: var(--bg-vellum); }
-
-        /* --- WELCOME TEXT SECTION --- */
-        .welcome-section { text-align: center; max-width: 800px; margin: 80px auto 40px; padding: 0 20px; }
-        .welcome-section p { font-size: 1.05rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 20px; }
-        .welcome-signature { font-family: var(--font-serif); font-size: 1.8rem !important; font-style: italic; color: var(--text-dark) !important; margin-top: 30px; }
-
-        /* --- BRAND VALUES BAR --- */
-        .values-section { display: flex; justify-content: space-around; padding: 0 5%; max-width: 1200px; margin: 0 auto; }
-        .value-item { text-align: center; max-width: 250px; }
-        .value-item svg { width: 32px; height: 32px; fill: var(--gold-accent); margin-bottom: 15px; }
-        .value-item h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; }
-        .value-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
-
-        /* --- FIBER JOURNEY SECTION --- */
-        .fiber-journey { 
-            display: grid; 
-            grid-template-columns: 1fr 1.2fr;
-            gap: 80px; 
-            padding: 0 5%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            align-items: center; 
+        /* --- INTRO SECTION WITH COMPLEX KNIT ART --- */
+        .intro-section {
+            text-align: center;
+            padding: 80px 20px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
         
-        /* Desktop Image styling with soft shadow */
-        .journey-image { 
+        .intro-section h1 { 
+            font-family: var(--font-serif); 
+            font-size: 3.5rem; 
+            font-weight: 400; 
+            margin: 0;
+        }
+        
+        .intro-section .knit-art-banner {
             width: 100%;
-            aspect-ratio: 3/4;
+            max-width: 100%;
+            height: auto;
+            opacity: 0.9;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            transition: all 0.4s ease;
+        }
+        
+        .intro-section p { 
+            color: var(--text-muted); 
+            font-size: 1.05rem;
+            line-height: 1.9;
+            max-width: 600px; 
+            margin: 0; 
+        }
+
+        /* --- PRODUCT GRID & VINTAGE FRAMES --- */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 40px 5% 100px; max-width: 1400px; margin: 0 auto; }
+        .product-card { text-align: left; cursor: pointer; }
+        
+        .img-placeholder { 
+            width: 100%; 
+            aspect-ratio: 4/5; 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
+            clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); 
+            border: 1px solid #d4cbb3; 
             background-size: cover;
             background-position: center;
-            border-radius: 4px;
-            box-shadow: 0 15px 40px rgba(62, 58, 53, 0.15);
+            background-color: #EFECE6; 
+            transition: transform 0.4s ease; 
+        }
+        
+        .img-placeholder::after { 
+            content: ""; 
+            position: absolute; 
+            inset: 6px; 
+            border: 1px solid var(--gold-accent); 
+            clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); 
+            pointer-events: none; 
+        }
+        
+        .product-card:hover .img-placeholder { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin-top: 10px; }
+        .product-desc { font-size: 0.9rem; color: var(--text-muted); margin-top: 5px; line-height: 1.4; }
+        .price { display: block; margin-top: 8px; font-size: 0.95rem; color: var(--text-dark); }
+
+        /* --- IMAGE LIGHTBOX MODAL --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(62, 58, 53, 0.95);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .journey-content { max-width: 550px; }
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            aspect-ratio: 4/5;
+        }
+
+        .modal-img-frame {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+        }
+
+        .modal-img-frame::after {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border: 2px solid var(--gold-accent);
+            clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+            pointer-events: none;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: var(--bg-vellum);
+            font-size: 40px;
+            font-family: var(--font-sans);
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--gold-accent);
+        }
+
+        /* --- THE BESPOKE ATELIER FOOTER --- */
+        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
         
-        .journey-content h2 { 
-            font-family: var(--font-serif); 
-            font-size: 3.2rem; 
-            font-weight: 400; 
-            margin-bottom: 30px; 
-            line-height: 1.1; 
+        .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
+        .footer-brand-logo { max-height: 110px; margin-bottom: 25px; opacity: 0.9; } 
+        
+        .footer-socials { display: flex; gap: 18px; margin-bottom: 30px; align-items: center; }
+        .footer-socials a svg { width: 22px; height: 22px; fill: var(--text-dark); transition: fill 0.3s ease; }
+        .footer-socials a:hover svg { fill: var(--solid-gold); }
+        
+        .footer-payments p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--text-muted); font-weight: 500; }
+        .payment-icons { display: flex; gap: 8px; align-items: center; }
+        .pay-text { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
+        .pay-dot { color: var(--gold-accent); font-size: 1rem; line-height: 1; }
+
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 25px; font-weight: 600; color: var(--text-dark); }
+        .footer-col p, .footer-col ul, .footer-col li { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-col ul { list-style: none; }
+        
+        .hours-list { max-width: 220px; } 
+        .hours-list li { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.04); padding-bottom: 8px; margin-bottom: 12px; }
+        .hours-list li:last-child { border-bottom: none; }
+        
+        .footer-col ul.standard-links li { margin-bottom: 12px; transition: color 0.3s ease; }
+        .footer-col ul.standard-links li a { cursor: pointer; transition: color 0.3s ease; }
+        .footer-col ul.standard-links li a:hover { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 1px; }
+        
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 25px; }
+        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
+        
+        .btn-elegant-small {
+            display: inline-block;
+            border: 1px solid var(--text-dark);
+            padding: 10px 20px;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
             color: var(--text-dark);
         }
-
-        /* Hide the mobile title on desktop screens */
-        .journey-mobile-title { display: none; }
-        
-        .journey-content p { 
-            font-size: 1.05rem; 
-            line-height: 1.9; 
-            color: var(--text-muted); 
-            margin-bottom: 25px; 
+        .btn-elegant-small:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-vellum);
         }
         
-        .journey-cta { 
-            display: inline-block; 
-            margin-top: 20px; 
-            font-family: var(--font-serif); 
-            font-size: 1.5rem; 
-            font-style: italic; 
-            color: var(--text-dark); 
-            border-bottom: 1px solid var(--gold-accent); 
-            padding-bottom: 5px; 
-            transition: opacity 0.3s;
-        }
-        .journey-cta:hover { opacity: 0.7; }
-
-        /* --- FIBER CATEGORIES (Formerly Featured Products) --- */
-        .section-title { text-align: center; font-family: var(--font-serif); font-size: 2.8rem; margin: 0 0 40px; font-weight: 400; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 5% 60px; max-width: 1400px; margin: 0 auto; }
-        .product-card { text-align: left; cursor: pointer; }
-        .img-placeholder { width: 100%; aspect-ratio: 4/5; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; position: relative; clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); border: 1px solid #d4cbb3; background-size: cover; background-position: center; transition: transform 0.4s ease; }
-        .img-placeholder::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--gold-accent); clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); pointer-events: none; }
-        .product-card:hover .img-placeholder { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .product-meta { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; margin-top: 10px; color: var(--text-dark); }
-        .category-desc { font-size: 0.95rem; color: var(--text-muted); margin-top: 8px; line-height: 1.6; }
-
-        /* --- NEWSLETTER SECTION --- */
-        .newsletter-section { background-color: #EFECE6; text-align: center; padding: 80px 5%; margin-top: 40px; }
-        .newsletter-section h2 { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 400; margin-bottom: 15px; }
-        .newsletter-section p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; }
-        .newsletter-form input { flex: 1; padding: 15px 20px; border: 1px solid rgba(0,0,0,0.1); font-family: var(--font-sans); background: transparent; outline: none; transition: border 0.3s; }
-        .newsletter-form input:focus { border-color: var(--gold-accent); }
-        .newsletter-form button { padding: 15px 30px; background-color: var(--text-dark); color: var(--bg-vellum); border: none; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; cursor: pointer; transition: background 0.3s; }
-        .newsletter-form button:hover { background-color: #1a1a1a; }
-
-        /* --- THE RICH FOOTER --- */
-        footer { background-color: #EFECE6; padding: 20px 5% 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
-        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
-        .footer-col p, .footer-col ul { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; cursor: pointer; transition: color 0.3s ease; }
-        .footer-col ul li:hover { color: var(--text-dark); }
-        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
-        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
-        .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white !important; padding: 10px 20px; border-radius: 4px; font-weight: 500; margin-top: 15px; transition: background 0.3s; }
-        .whatsapp-btn:hover { background-color: #128C7E; }
-        .whatsapp-btn svg { fill: white; width: 18px; height: 18px; margin: 0; }
-        .map-link { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 2px; font-weight: 500; }
-        .footer-logo { max-height: 80px; margin: 0 auto 20px auto; display: block; opacity: 0.8; transition: opacity 0.3s ease; }
-        .footer-logo:hover { opacity: 1; }
         .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
 
         /* Mobile Adjustments */
@@ -189,76 +241,38 @@
             header { justify-content: center; padding: 15px 5%; }
             .header-actions { position: absolute; right: 5%; }
             .header-actions > a { display: none; }
-            .logo img { max-height: 90px; }
-            
-            /* Give more elegant space to dividers on mobile */
-            .elegant-divider { margin: 80px auto; width: 60%; }
-
-            .hero { grid-template-columns: 1fr; gap: 30px; padding: 40px 5%; }
-            .hero-image { height: 320px; order: -1; }
-            .hero-text { text-align: center; display: flex; flex-direction: column; align-items: center; }
-            .hero-text h1 { font-size: 2.4rem; margin-bottom: 10px; }
-            .hero-text .en-subtitle { font-size: 1.8rem; margin-bottom: 20px; }
+            .logo img { max-height: 75px; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
-            
-            .welcome-section { margin-bottom: 0; }
-            
-            .values-section { 
-                flex-direction: column; 
-                align-items: center; 
-                gap: 50px; 
-                border: none; 
-            }
-            
-            /* --- The Mobile Editorial Layout Update --- */
-            .fiber-journey { 
-                display: flex; 
-                flex-direction: column; 
-                gap: 30px; 
-                text-align: center; 
+            .intro-section h1 { font-size: 2.8rem; }
+
+            /* --- Mobile Banner Enhancement --- */
+            .intro-section .knit-art-banner { 
+                max-width: 90%; 
+                border: 1px solid var(--gold-accent); /* Elegant golden line */
+                padding: 10px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.12); /* Lifted Shadow */
+                background-color: #fff;
             }
 
-            /* Reveal the Mobile Title above the image */
-            .journey-mobile-title {
-                display: block;
-                font-family: var(--font-serif); 
-                font-size: 2.8rem; 
-                font-weight: 400; 
-                color: var(--text-dark);
-                margin: 0;
-                line-height: 1.1;
-            }
-
-            /* Hide the Desktop Title which lives under the image now */
-            .journey-content h2 { display: none; }
-            
-            .journey-content { margin: 0 auto; }
-            .journey-image { 
-                aspect-ratio: 2/3; 
-                background-position: top center;
-                margin-bottom: 15px; /* Adds space before text starts */
-            }
-
-            .newsletter-form { flex-direction: column; gap: 10px; }
-            .section-title { font-size: 2.4rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+            .footer-brand { align-items: center; }
+            .footer-icon-text { flex-direction: column; align-items: center; text-align: center; }
+            .payment-icons { justify-content: center; }
+            .hours-list { margin: 0 auto; }
+            .hours-list li { justify-content: space-between; } 
         }
     </style>
 </head>
-<body class="no-scroll">
-
-    <div id="splash-screen">
-        <img src="images/logo.png" alt="Garnstuen Logo" class="splash-logo">
-        <p class="splash-text">Forfiner hver en maske...</p>
-    </div>
+<body>
 
     <header>
         <a href="index.html" class="logo">
             <img src="images/logo.png" alt="Garnstuen Logo">
         </a>
         <nav class="nav-links" id="nav-menu">
-            <a href="yarn.html">Garn</a>
+            <a href="yarn.html" class="active-link">Garn</a>
             <a href="needles.html">Strikkepinde & Hæklenåle</a>
             <a href="accessories.html">Tilbehør & Knapper</a>
             <a href="books.html">Bøger & Opskrifter</a>
@@ -274,132 +288,121 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Forfin Hver En Maske.</h1>
-                <span class="en-subtitle">Elevate Every Stitch.</span>
-                
-                <p>Velkommen til vores digitale atelier. Udforsk vores håndplukkede udvalg af europæisk kvalitetsgarn, skabt til den moderne strikker, der værdsætter ægte håndværk og kompromisløs kvalitet.</p>
-                <a href="yarn.html" class="btn-elegant">Udforsk Kollektionen</a>
-            </div>
-            <div class="hero-image" style="background-image: url('images/hero-banner.jpg');"></div>
-        </section>
+        <div class="intro-section">
+            <h1>Håndplukkede Kvaliteter</h1>
+            <img src="images/yarn_art_complex.svg" alt="Håndplukkede Fibre Line Art" class="knit-art-banner">
+            <p>Udforsk en verden af ægthed, kvalitet og håndværk. Vores palet af nøje udvalgte europæiske naturfibre er kurateret med omsorg, fra de fineste mohair- og silke-blandinger til de mest robuste, ubehandlede uld. Dit næste mesterværk fortjener det perfekte udgangspunkt.</p>
+        </div>
 
-        <hr class="elegant-divider">
-
-        <section class="welcome-section">
-            <p>
-                I GARNSTUEN på Østerbrogade 138 kan du finde alt hvad du har brug for til den ultimative strikkeoplevelse, hvad enten du er nybegynder eller rutineret strikker. Butikken har et stort og fristende udvalg af lækre garner i mange kvaliteter. Kom forbi og bliv inspireret - vi har et stort og bredt udvalg af forskellige garnkvaliteter i bl.a. uld, bomuld, kashmir, hør og bambus, samt knapper, strikkepinde, maskeholdere, pindemålere og andet fantastisk tilbehør til dit næste strikkeprojekt...
-            </p>
-            <p class="welcome-signature">Vi glæder os til at betjene dig!</p>
-        </section>
-
-        <hr class="elegant-divider">
-
-        <section class="values-section">
-            <div class="value-item">
-                <svg viewBox="0 0 24 24"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-                <h4>Håndplukket Kvalitet</h4>
-                <p>Vi rejser Europa rundt for at finde de fineste og mest ansvarligt producerede naturfibre til dine projekter.</p>
-            </div>
-            <div class="value-item">
-                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                <h4>Personlig Rådgivning</h4>
-                <p>Har du brug for hjælp til opskrifter eller farvevalg? Vi deler vores faglige viden og passion for strik.</p>
-            </div>
-            <div class="value-item">
-                <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                <h4>Lokal & Digital</h4>
-                <p>Udforsk sortimentet online og benyt vores Reservation for at afhente i ro og mag i butikken på Østerbrogade.</p>
-            </div>
-        </section>
-
-        <hr class="elegant-divider">
-
-        <section class="fiber-journey">
-            <h2 class="journey-mobile-title">Fibrenes Fortælling</h2>
-            
-            <div class="journey-image" style="background-image: url('images/splash.jpg');"></div>
-            
-            <div class="journey-content">
-                <h2>Fibrenes Fortælling</h2>
-                <p>Vi forhandler ikke blot garn; vi sporer dets ophav. Før en ny kvalitet overhovedet finder vej til vores hylder, har vi personligt haft utallige prøver i hænderne for at teste spændstigheden og sikre den kompromisløse kvalitet.</p>
-                <p>Men materialet får først for alvor sjæl, når det møder dig. For os er butikken ikke bare et sted med garn – det er et rum fyldt med nærvær. Vi elsker de stunder, vi deler over disken; at lytte til jeres drømme og dele vores egne. Mens snakken går, bliver jeres og vores historier usynligt strikket sammen med de tråde, I ender med at tage med hjem.</p>
-                <p>Kom forbi vores atelier. Mærk den varme stemning, og fornem det naturlige lanolin mellem fingrene, længe før dit næste mesterværk overhovedet er begyndt.</p>
-                <a href="about.html" class="journey-cta">Læs mere om vores håndværk...</a>
-            </div>
-        </section>
-
-        <hr class="elegant-divider">
-
-        <h2 class="section-title">Et Univers af Naturfibre</h2>
         <div class="product-grid">
             
-            <div class="product-card" onclick="window.location.href='yarn.html';">
-                <div class="img-placeholder" style="background-image: url('images/merino-sage.jpg');"></div>
-                <div class="product-meta">Klassisk Uld</div>
-                <p class="category-desc">Ærlige, slidstærke fibre til tidløse og varme trøjer, der holder i generationer.</p>
+            <div class="product-card" onclick="openModal('images/sandness-doublesunday.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/sandness-doublesunday.jpeg');"></div>
+                <div class="product-meta">Sandnes | Double Sunday</div>
+                <div class="product-desc">100% Merino Uld | Støvet Grøn</div>
+                <span class="price">DKK 45,00</span>
             </div>
 
-            <div class="product-card" onclick="window.location.href='yarn.html';">
-                <div class="img-placeholder" style="background-image: url('images/alpaca-taupe.jpg');"></div>
-                <div class="product-meta">Den Blødeste Alpaca</div>
-                <p class="category-desc">Lunt, vægtløst og med et smukt, blødt fald. Ren luksus direkte mod huden.</p>
+            <div class="product-card" onclick="openModal('images/filcolana-arwetta classic.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/filcolana-arwetta classic.jpeg');"></div>
+                <div class="product-meta">Filcolana | Arwetta Classic</div>
+                <div class="product-desc">80% Merino, 20% Nylon | Koksgrå</div>
+                <span class="price">DKK 38,00</span>
             </div>
 
-            <div class="product-card" onclick="window.location.href='yarn.html';">
-                <div class="img-placeholder" style="background-image: url('images/silk-mohair.jpg');"></div>
-                <div class="product-meta">Silke & Mohair</div>
-                <p class="category-desc">En delikat halo og subtil glans, perfekt som følgetråd til de fineste detaljer.</p>
+            <div class="product-card" onclick="openModal('images/olive-merino.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/olive-merino.jpeg');"></div>
+                <div class="product-meta">Knitting for Olive | Merino</div>
+                <div class="product-desc">100% Oeko-Tex Merino | Taupe</div>
+                <span class="price">DKK 50,00</span>
+            </div>
+            
+             <div class="product-card" onclick="openModal('images/cheetah-kidseta.jpeg')">
+                <div class="img-placeholder" style="background-image: url('images/cheetah-kidseta.jpeg');"></div>
+                <div class="product-meta">Gepard | Kid Seta</div>
+                <div class="product-desc">70% Super Kid Mohair, 30% Silke | Støvet Blå</div>
+                <span class="price">DKK 65,00</span>
             </div>
 
         </div>
-
-        <section class="newsletter-section">
-            <h2>Bliv en del af Strikkeklubben</h2>
-            <p>Skriv dig op til vores nyhedsbrev og få invitationer til eksklusive events i butikken, nye strikkeopskrifter og besked, når vi får spændende nye garnkvaliteter hjem.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Tak for din tilmelding!');">
-                <input type="email" placeholder="Din e-mailadresse..." required>
-                <button type="submit">Tilmeld</button>
-            </form>
-        </section>
-
     </main>
+
+    <div id="image-modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal(event)">×</span>
+            <div id="modal-img-display" class="modal-img-frame"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-grid">
+            
+            <div class="footer-brand">
+                <a href="index.html">
+                    <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-brand-logo">
+                </a>
+                
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Pinterest">
+                        <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.624 0 12.017 0z"/></svg>
+                    </a>
+                    <a href="https://wa.me/1234567890" aria-label="WhatsApp" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    </a>
+                </div>
+
+                <div class="footer-payments">
+                    <p>Vi modtager i butikken:</p>
+                    <div class="payment-icons">
+                        <span class="pay-text">MobilePay</span>
+                        <span class="pay-dot">·</span>
+                        <span class="pay-text">Visa</span>
+                        <span class="pay-dot">·</span>
+                        <span class="pay-text">Mastercard</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="footer-col">
-                <h4>Besøg Butikken</h4>
+                <h4>Atelieret</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK</p>
+                    <p>
+                        Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK<br><br>
+                        Tlf: +45 12 34 56 78<br>
+                        E-mail: kontakt@garnstuen.dk
+                    </p>
                 </div>
-                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="map-link" target="_blank" rel="noopener noreferrer">Find Vej</a>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Kontakt Os</h4>
-                <p>Har du brug for hjælp til at finde det rette garn eller matche en strikkefasthed? Skriv direkte til os.</p>
-                <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Skriv på WhatsApp
+                
+                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="btn-elegant-small" target="_blank" rel="noopener noreferrer">
+                    Få Rutevejledning
                 </a>
             </div>
+
+            <div class="footer-col">
+                <h4>Åbningstider</h4>
+                <ul class="hours-list">
+                    <li><span>Man - Fre:</span> <span>11.00 - 17.30</span></li>
+                    <li><span>Lørdag:</span> <span>10.00 - 14.00</span></li>
+                    <li><span>Søndag:</span> <span>Lukket</span></li>
+                </ul>
+            </div>
+
             <div class="footer-col">
                 <h4>Information</h4>
-                <ul>
+                <ul class="standard-links">
                     <li><a href="about.html">Om Os</a></li>
+                    <li><a href="reserve.html">Sådan Reserverer Du</a></li>
                     <li><a href="club.html">Strikkeklub</a></li>
-                    <li><a href="#">Fragt & Returnering</a></li>
                     <li><a href="privacy.html">Persondatapolitik</a></li>
                 </ul>
             </div>
         </div> 
         
         <div class="footer-bottom">
-            <a href="index.html">
-                <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-logo">
-            </a>
             <p>Daph9&GPS© 2026. Forfiner hver en maske.</p>
         </div>
     </footer>
@@ -418,14 +421,25 @@
             }
         });
 
-        // --- SPLASH SCREEN TIMER ---
-        window.addEventListener('load', () => {
-            const splashScreen = document.getElementById('splash-screen');
-            setTimeout(() => {
-                splashScreen.classList.add('fade-away');
-                document.body.classList.remove('no-scroll');
-            }, 3000); 
-        });
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img-display');
+
+        function openModal(imageSrc) {
+            modalImg.style.backgroundImage = `url('${imageSrc}')`;
+            modal.style.display = 'flex';
+            setTimeout(() => { modal.classList.add('show'); }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event.target === modal || event.target.classList.contains('close-modal')) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+        }
     </script>
 </body>
 </html>
