@@ -15,6 +15,7 @@
             --solid-gold: #C5A371;
             --french-gold: #EFEAD8; 
             --pastel-sage: #849684;
+            --light-sage: #CFD6CF; /* New, elegant pale green for hover */
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -46,8 +47,8 @@
         }
         .intro-section h1 { 
             font-family: var(--font-serif); 
-            font-size: min(7.5vw, 3.5rem); /* Ensures it perfectly scales to fit one line */
-            white-space: nowrap; /* Forces one line */
+            font-size: min(7.5vw, 3.5rem); 
+            white-space: nowrap; 
             font-weight: 400; 
             margin-bottom: 15px; 
             color: var(--text-dark); 
@@ -104,7 +105,7 @@
 
         .brand-title-display {
             font-family: var(--font-serif);
-            font-size: 2.2rem; 
+            font-size: 1.8rem; /* Scaled down for elegance */
             color: var(--text-dark); 
             font-weight: 400;
             text-align: center;
@@ -117,7 +118,7 @@
         .brand-info {
             position: absolute;
             inset: 0;
-            background-color: var(--french-gold); 
+            background-color: var(--light-sage); /* The new pale green */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -132,18 +133,18 @@
 
         .brand-name {
             font-family: var(--font-serif);
-            font-size: 1.4rem; 
+            font-size: 1.25rem; /* Slightly scaled down */
             color: var(--text-dark); 
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
             border-bottom: 1px solid rgba(62, 58, 53, 0.15); 
             padding-bottom: 4px;
         }
 
         .brand-desc {
-            font-size: 0.85rem;
+            font-size: 0.8rem; /* Neater, more compact text */
             color: var(--text-dark); 
-            line-height: 1.5;
+            line-height: 1.45;
             font-weight: 400;
             padding: 0 10px;
         }
@@ -164,13 +165,13 @@
 
         /* --- THE BESPOKE ATELIER FOOTER --- */
         footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
         
         .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
-        .footer-brand-logo { max-height: 80px; margin-bottom: 25px; opacity: 0.9; } /* Restored to footer-logo */
+        .footer-brand-logo { max-height: 110px; margin-bottom: 25px; opacity: 0.9; } 
         
-        .footer-socials { display: flex; gap: 15px; margin-bottom: 30px; }
-        .footer-socials a svg { width: 20px; height: 20px; fill: var(--text-dark); transition: fill 0.3s ease; }
+        .footer-socials { display: flex; gap: 18px; margin-bottom: 30px; align-items: center; }
+        .footer-socials a svg { width: 22px; height: 22px; fill: var(--text-dark); transition: fill 0.3s ease; }
         .footer-socials a:hover svg { fill: var(--solid-gold); }
         
         .footer-payments p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--text-muted); font-weight: 500; }
@@ -181,19 +182,35 @@
         .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 25px; font-weight: 600; color: var(--text-dark); }
         .footer-col p, .footer-col ul, .footer-col li { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; transition: color 0.3s ease; }
-        .footer-col ul li a { cursor: pointer; transition: color 0.3s ease; }
-        .footer-col ul li a:hover { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 1px; }
         
-        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+        /* Symmetrical Opening Hours */
+        .hours-list li { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.04); padding-bottom: 8px; margin-bottom: 12px; }
+        .hours-list li:last-child { border-bottom: none; }
+        
+        .footer-col ul.standard-links li { margin-bottom: 12px; transition: color 0.3s ease; }
+        .footer-col ul.standard-links li a { cursor: pointer; transition: color 0.3s ease; }
+        .footer-col ul.standard-links li a:hover { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 1px; }
+        
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 25px; }
         .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
         
-        .footer-actions-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
-        .footer-action-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-dark); font-size: 0.85rem; font-weight: 500; transition: color 0.3s; }
-        .footer-action-link:hover { color: var(--solid-gold); }
-        .footer-action-link svg { width: 16px; height: 16px; fill: currentColor; }
-        .footer-action-link.map-link { text-decoration: underline; text-decoration-color: var(--text-dark); text-underline-offset: 3px; }
-        .footer-action-link.map-link:hover { text-decoration-color: var(--solid-gold); }
+        /* Elegant Directions Button */
+        .btn-elegant-small {
+            display: inline-block;
+            border: 1px solid var(--text-dark);
+            padding: 10px 20px;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        .btn-elegant-small:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-vellum);
+        }
         
         .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
 
@@ -209,14 +226,9 @@
             
             .elegant-divider { margin: 30px auto 40px; }
             
-            .brand-grid { 
-                gap: 40px; 
-                padding: 0 10% 80px; 
-                grid-template-columns: 1fr; 
-            }
-            
+            .brand-grid { gap: 40px; padding: 0 10% 80px; grid-template-columns: 1fr; }
             .brand-card { aspect-ratio: 4/3; }
-            .brand-title-display { font-size: 2.4rem; }
+            .brand-title-display { font-size: 2rem; } /* Scaled down for mobile */
             .brand-card::after { inset: 6px; }
             .brand-card:hover::after, .brand-card:active::after { inset: 10px; }
 
@@ -224,8 +236,8 @@
             .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
             .footer-brand { align-items: center; }
             .footer-icon-text { flex-direction: column; align-items: center; text-align: center; }
-            .footer-actions-container { align-items: center; }
             .payment-icons { justify-content: center; }
+            .hours-list li { justify-content: center; gap: 15px; } 
         }
     </style>
 </head>
@@ -343,15 +355,18 @@
                     <a href="#" aria-label="Pinterest">
                         <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.624 0 12.017 0z"/></svg>
                     </a>
+                    <a href="https://wa.me/1234567890" aria-label="WhatsApp" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    </a>
                 </div>
 
                 <div class="footer-payments">
                     <p>Vi modtager i butikken:</p>
                     <div class="payment-icons">
                         <span class="pay-text">MobilePay</span>
-                        <span class="pay-dot">&middot;</span>
+                        <span class="pay-dot">·</span>
                         <span class="pay-text">Visa</span>
-                        <span class="pay-dot">&middot;</span>
+                        <span class="pay-dot">·</span>
                         <span class="pay-text">Mastercard</span>
                     </div>
                 </div>
@@ -361,32 +376,30 @@
                 <h4>Atelieret</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK</p>
+                    <p>
+                        Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK<br><br>
+                        Tlf: +45 12 34 56 78<br>
+                        E-mail: kontakt@garnstuen.dk
+                    </p>
                 </div>
                 
-                <div class="footer-actions-container">
-                    <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="footer-action-link map-link" target="_blank" rel="noopener noreferrer">
-                        Find Vej
-                    </a>
-                    <a href="https://wa.me/1234567890" class="footer-action-link" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                        WhatsApp
-                    </a>
-                </div>
+                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="btn-elegant-small" target="_blank" rel="noopener noreferrer">
+                    Få Rutevejledning
+                </a>
             </div>
 
             <div class="footer-col">
                 <h4>Åbningstider</h4>
-                <ul>
-                    <li>Tirsdag - Fredag: 11.00 - 17.30</li>
-                    <li>Lørdag: 10.00 - 14.00</li>
-                    <li>Søndag & Mandag: Lukket</li>
+                <ul class="hours-list">
+                    <li><span>Man - Fre:</span> <span>11.00 - 17.30</span></li>
+                    <li><span>Lørdag:</span> <span>10.00 - 14.00</span></li>
+                    <li><span>Søndag:</span> <span>Lukket</span></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Information</h4>
-                <ul>
+                <ul class="standard-links">
                     <li><a href="about.html">Om Os</a></li>
                     <li><a href="reserve.html">Sådan Reserverer Du</a></li>
                     <li><a href="club.html">Strikkeklub</a></li>
