@@ -13,9 +13,6 @@
             --text-muted: #7A7A7A;
             --gold-accent: rgba(197, 163, 113, 0.6);
             --solid-gold: #C5A371;
-            --pastel-sage: #849684;
-            --pastel-charcoal: #7C7A75;
-            --pastel-taupe: #A89684;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -24,10 +21,9 @@
         a { text-decoration: none; color: inherit; }
         main { flex: 1; }
 
-        /* Prevent scrolling while splash screen is active */
         .no-scroll { overflow: hidden; }
 
-        /* --- SPLASH SCREEN STYLES --- */
+        /* --- SPLASH SCREEN --- */
         #splash-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background-color: var(--bg-vellum); display: flex; flex-direction: column;
@@ -44,129 +40,85 @@
             100% { transform: translateY(0); }
         }
 
-        /* --- THE PRISTINE HEADER --- */
+        /* --- HEADER --- */
         header { 
             padding: 20px 5%; display: flex; justify-content: space-between; 
             align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
             background-color: var(--bg-vellum); position: relative; z-index: 1000;
         }
         .logo img { max-height: 80px; width: auto; display: block; }
-        
         .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
         .nav-links a:hover { color: #C5A371; }
-
         .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
         .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
 
-        /* --- THE ELEGANT DIVIDER --- */
+        /* --- DIVIDERS --- */
         .elegant-divider {
-            border: none;
-            height: 1px;
+            border: none; height: 1px;
             background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
-            width: 40%;
-            max-width: 250px;
-            margin: 80px auto;
-            opacity: 0.5;
+            width: 40%; max-width: 250px; margin: 80px auto; opacity: 0.5;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 60px 5%; max-width: 1400px; margin: 0 auto; align-items: center; }
         .hero-image { width: 100%; height: 550px; background-image: url('images/hero-banner.jpg'); background-size: cover; background-position: center; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-radius: 2px; }
         .hero-text h1 { font-family: var(--font-serif); font-size: 4rem; font-weight: 400; line-height: 1.1; margin-bottom: 15px; }
         .hero-text .en-subtitle { font-family: var(--font-serif); font-size: 2.2rem; color: #A89684; font-style: italic; margin-bottom: 25px; display: block; }
         .hero-text p { font-size: 1rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8; max-width: 90%; }
-        
         .btn-elegant { display: inline-block; border: 1px solid var(--text-dark); padding: 15px 40px; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transition: all 0.3s ease; cursor: pointer; }
         .btn-elegant:hover { background-color: var(--text-dark); color: var(--bg-vellum); }
 
-        /* --- WELCOME TEXT SECTION --- */
+        /* --- SECTIONS --- */
         .welcome-section { text-align: center; max-width: 800px; margin: 80px auto 40px; padding: 0 20px; }
         .welcome-section p { font-size: 1.05rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 20px; }
         .welcome-signature { font-family: var(--font-serif); font-size: 1.8rem !important; font-style: italic; color: var(--text-dark) !important; margin-top: 30px; }
 
-        /* --- BRAND VALUES BAR --- */
         .values-section { display: flex; justify-content: space-around; padding: 0 5%; max-width: 1200px; margin: 0 auto; }
         .value-item { text-align: center; max-width: 250px; }
         .value-item svg { width: 32px; height: 32px; fill: var(--gold-accent); margin-bottom: 15px; }
         .value-item h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; }
         .value-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* --- FIBER JOURNEY SECTION --- */
-        .fiber-journey { 
-            display: grid; 
-            grid-template-columns: 1fr 1.2fr;
-            gap: 80px; 
-            padding: 0 5%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            align-items: center; 
-        }
-        
-        .journey-image { 
-            width: 100%;
-            aspect-ratio: 3/4;
-            background-image: url('images/splash.jpg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 4px;
-            box-shadow: 0 15px 40px rgba(62, 58, 53, 0.15);
-        }
-
-        .journey-content { max-width: 550px; }
-        .journey-content h2 { 
-            font-family: var(--font-serif); 
-            font-size: 3.2rem; 
-            font-weight: 400; 
-            margin-bottom: 30px; 
-            line-height: 1.1; 
-            color: var(--text-dark);
-        }
-
+        .fiber-journey { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; padding: 0 5%; max-width: 1200px; margin: 0 auto; align-items: center; }
+        .journey-image { width: 100%; aspect-ratio: 3/4; background-image: url('images/splash.jpg'); background-size: cover; background-position: center; border-radius: 4px; box-shadow: 0 15px 40px rgba(62, 58, 53, 0.15); }
+        .journey-content h2 { font-family: var(--font-serif); font-size: 3.2rem; font-weight: 400; margin-bottom: 30px; line-height: 1.1; }
         .journey-mobile-title { display: none; }
-        
-        .journey-content p { 
-            font-size: 1.05rem; 
-            line-height: 1.9; 
-            color: var(--text-muted); 
-            margin-bottom: 25px; 
-        }
-        
-        .journey-cta { 
-            display: inline-block; 
-            margin-top: 20px; 
-            font-family: var(--font-serif); 
-            font-size: 1.5rem; 
-            font-style: italic; 
-            color: var(--text-dark); 
-            border-bottom: 1px solid var(--gold-accent); 
-            padding-bottom: 5px; 
-            transition: opacity 0.3s;
-        }
-        .journey-cta:hover { opacity: 0.7; }
+        .journey-content p { font-size: 1.05rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 25px; }
+        .journey-cta { display: inline-block; margin-top: 20px; font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; color: var(--text-dark); border-bottom: 1px solid var(--gold-accent); padding-bottom: 5px; transition: opacity 0.3s; }
 
-        /* --- FIBER CATEGORIES --- */
         .section-title { text-align: center; font-family: var(--font-serif); font-size: 2.8rem; margin: 0 0 40px; font-weight: 400; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 5% 60px; max-width: 1400px; margin: 0 auto; }
         .product-card { text-align: left; cursor: pointer; }
         .img-placeholder { width: 100%; aspect-ratio: 4/5; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; position: relative; clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); border: 1px solid #d4cbb3; background-size: cover; background-position: center; transition: transform 0.4s ease; }
         .img-placeholder::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--gold-accent); clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); pointer-events: none; }
         .product-card:hover .img-placeholder { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .product-meta { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; margin-top: 10px; color: var(--text-dark); }
+        .product-meta { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; margin-top: 10px; }
         .category-desc { font-size: 0.95rem; color: var(--text-muted); margin-top: 8px; line-height: 1.6; }
 
-        /* --- NEWSLETTER SECTION --- */
-        .newsletter-section { background-color: #EFECE6; text-align: center; padding: 80px 5%; margin-top: 40px; }
+        /* --- NEWSLETTER SECTION FIX --- */
+        .newsletter-section { 
+            background-color: var(--bg-vellum); 
+            padding: 80px 5% 20px; 
+        }
+        .newsletter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background-color: #fff;
+            border: 1px solid rgba(197, 163, 113, 0.3);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
         .newsletter-section h2 { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 400; margin-bottom: 15px; }
-        .newsletter-section p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .newsletter-section p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; line-height: 1.6; max-width: 500px; margin: 0 auto 30px; }
         .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; }
-        .newsletter-form input { flex: 1; padding: 15px 20px; border: 1px solid rgba(0,0,0,0.1); font-family: var(--font-sans); background: transparent; outline: none; transition: border 0.3s; }
-        .newsletter-form input:focus { border-color: var(--gold-accent); }
+        .newsletter-form input { flex: 1; padding: 15px 20px; border: 1px solid rgba(0,0,0,0.1); font-family: var(--font-sans); background: var(--bg-vellum); outline: none; transition: border 0.3s; }
         .newsletter-form button { padding: 15px 30px; background-color: var(--text-dark); color: var(--bg-vellum); border: none; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; cursor: pointer; transition: background 0.3s; }
         .newsletter-form button:hover { background-color: #1a1a1a; }
 
         /* --- THE BESPOKE ATELIER FOOTER --- */
-        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
+        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
         .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
         .footer-brand-logo { max-height: 110px; margin-bottom: 25px; opacity: 0.9; } 
@@ -196,38 +148,23 @@
             .header-actions { position: absolute; right: 5%; }
             .header-actions > a { display: none; }
             .logo img { max-height: 90px; }
-            .elegant-divider { margin: 80px auto; width: 60%; }
             .hero { grid-template-columns: 1fr; gap: 30px; padding: 40px 5%; }
-            
-            /* --- Mobile Hero Enhancement: Golden Border and Shadow --- */
-            .hero-image { 
-                height: 320px; 
-                order: -1; 
-                border: 1px solid var(--gold-accent); 
-                padding: 10px;
-                background-clip: content-box;
-                background-color: #fff;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-            }
-            
-            .hero-text { text-align: center; display: flex; flex-direction: column; align-items: center; }
-            .hero-text h1 { font-size: 2.4rem; margin-bottom: 10px; }
-            .hero-text .en-subtitle { font-size: 1.8rem; margin-bottom: 20px; }
+            .hero-image { height: 320px; order: -1; border: 1px solid var(--gold-accent); padding: 10px; background-clip: content-box; background-color: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+            .hero-text h1 { font-size: 2.4rem; }
+            .hero-text .en-subtitle { font-size: 1.8rem; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
             .values-section { flex-direction: column; align-items: center; gap: 50px; }
             .fiber-journey { display: flex; flex-direction: column; gap: 30px; text-align: center; }
-            .journey-mobile-title { display: block; font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; margin: 0; line-height: 1.1; }
+            .journey-mobile-title { display: block; font-family: var(--font-serif); font-size: 2.8rem; margin: 0; line-height: 1.1; }
             .journey-content h2 { display: none; }
-            .journey-image { aspect-ratio: 2/3; background-position: top center; margin-bottom: 15px; }
+            .journey-image { aspect-ratio: 2/3; background-position: top center; }
+            .newsletter-container { padding: 40px 20px; }
             .newsletter-form { flex-direction: column; gap: 10px; }
-            .section-title { font-size: 2.4rem; }
-
             .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
             .footer-brand { align-items: center; }
-            .footer-icon-text { flex-direction: column; align-items: center; text-align: center; }
-            .payment-icons { justify-content: center; }
+            .footer-icon-text { flex-direction: column; align-items: center; }
             .hours-list { margin: 0 auto; }
         }
     </style>
@@ -302,9 +239,8 @@
             <div class="journey-image"></div>
             <div class="journey-content">
                 <h2>Fibrenes Fortælling</h2>
-                <p>Vi forhandler ikke blot garn; vi sporer dets ophav. Før en ny kvalitet overhovedet finder vej til vores hylder, har vi personligt haft utallige prøver i hænderne for at teste spændstigheden og sikre den kompromisløse kvalitet.</p>
+                <p>Vi forhandler ikke blot garn; vi sporer dets ophav. Før en ny kvalitet overhovedet finder vej til vores hylder, har vi personligt haft utallige prøver i hænderne for at sikre den kompromisløse kvalitet.</p>
                 <p>Men materialet får først for alvor sjæl, når det møder dig. For os er butikken ikke bare et sted med garn – det er et rum fyldt med nærvær. Vi elsker de stunder, vi deler over disken; at lytte til jeres drømme og dele vores egne.</p>
-                <p>Kom forbi vores atelier. Mærk den varme stemning, og fornem det naturlige lanolin mellem fingrene, længe før dit næste mesterværk overhovedet er begyndt.</p>
                 <a href="about.html" class="journey-cta">Læs mere om vores håndværk...</a>
             </div>
         </section>
@@ -331,13 +267,17 @@
         </div>
 
         <section class="newsletter-section">
-            <h2>Bliv en del af Strikkeklubben</h2>
-            <p>Skriv dig op til vores nyhedsbrev og få invitationer til eksklusive events i butikken, nye strikkeopskrifter og besked, når vi får spændende nye garnkvaliteter hjem.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Tak for din tilmelding!');">
-                <input type="email" placeholder="Din e-mailadresse..." required>
-                <button type="submit">Tilmeld</button>
-            </form>
+            <div class="newsletter-container">
+                <h2>Bliv en del af Strikkeklubben</h2>
+                <p>Skriv dig op til vores nyhedsbrev og få invitationer til eksklusive events i butikken, nye strikkeopskrifter og besked om nye kvaliteter.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Tak for din tilmelding!');">
+                    <input type="email" placeholder="Din e-mailadresse..." required>
+                    <button type="submit">Tilmeld</button>
+                </form>
+            </div>
         </section>
+
+        <hr class="elegant-divider">
     </main>
 
     <footer>
@@ -401,7 +341,6 @@
             }
         });
 
-        // --- SPLASH SCREEN TIMER ---
         window.addEventListener('load', () => {
             const splashScreen = document.getElementById('splash-screen');
             setTimeout(() => {
