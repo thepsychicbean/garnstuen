@@ -12,6 +12,7 @@
             --text-dark: #3E3A35;
             --text-muted: #7A7A7A;
             --gold-accent: rgba(197, 163, 113, 0.6);
+            --pastel-sage: #849684; /* Integrated Theme Green */
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -52,8 +53,8 @@
         /* --- BRAND DIRECTORY GRID --- */
         .brand-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider minmax for better geometry */
+            gap: 40px; 
             padding: 0 5% 100px; 
             max-width: 1400px; 
             margin: 0 auto; 
@@ -63,58 +64,85 @@
             position: relative;
             aspect-ratio: 1; 
             background-color: #FFFFFF; 
-            border: 1px solid rgba(0,0,0,0.04);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             cursor: pointer;
-            transition: box-shadow 0.5s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            
+            /* --- THE CLIPPED-PATH THEME FRAME --- */
+            clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
+            border: 1px solid #d4cbb3; /* Outer Frame */
         }
         
-        .brand-card:hover {
-            box-shadow: 0 20px 40px rgba(62, 58, 53, 0.08);
+        /* The Inset Golden Line */
+        .brand-card::after {
+            content: "";
+            position: absolute;
+            inset: 8px; /* Standard inset for the golden line */
+            border: 1px solid var(--gold-accent);
+            clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
+            pointer-events: none;
+            transition: inset 0.4s ease;
         }
 
-        /* The Elegant Typography Display (Replaces Images) */
+        .brand-card:hover {
+            transform: translateY(-5px); /* Gentle float */
+            box-shadow: 0 20px 40px rgba(62, 58, 53, 0.08);
+        }
+        
+        /* Contract the golden line slightly on hover for visual depth */
+        .brand-card:hover::after {
+            inset: 12px;
+        }
+
+        /* The Elegant Typography Display in Theme Green */
         .brand-title-display {
             font-family: var(--font-serif);
             font-size: 2.8rem;
-            color: var(--text-dark);
+            color: var(--pastel-sage); /* Integrated Green Color */
             font-weight: 400;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+            position: relative;
+            z-index: 10;
         }
 
-        /* The hidden text that appears on hover */
+        /* The hidden text overlay in Theme Green */
         .brand-info {
             position: absolute;
             inset: 0;
-            background-color: rgba(249, 247, 242, 0.98); 
+            background-color: var(--pastel-sage); /* Solid Green Reveal */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 30px;
+            padding: 40px;
             text-align: center;
             opacity: 0;
             transform: translateY(15px);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 20;
         }
 
+        /* Cream text on green background */
         .brand-name {
             font-family: var(--font-serif);
             font-size: 2rem;
-            color: var(--text-dark);
-            margin-bottom: 12px;
+            color: var(--bg-vellum); /* Cream Text */
+            margin-bottom: 15px;
             font-weight: 400;
+            border-bottom: 1px solid rgba(249, 247, 242, 0.3); /* Subtle separator */
+            padding-bottom: 5px;
         }
 
         .brand-desc {
             font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
+            color: rgba(249, 247, 242, 0.9); /* Cream Text */
+            line-height: 1.8;
+            font-weight: 300;
         }
 
         /* Hover Triggers */
@@ -152,29 +180,36 @@
             .intro-section h1 { font-size: 2.8rem; }
             .elegant-divider { margin: 30px auto 40px; }
             
+            /* Symmetrical adjustments to frames on mobile */
+            .brand-grid { gap: 30px; }
+            
             /* Show text automatically on mobile since there is no hover */
             @media (hover: none) {
                 .brand-info { 
                     opacity: 1; 
                     transform: translateY(0); 
-                    background-color: transparent; 
+                    background-color: var(--pastel-sage); /* Keep the green on mobile */
                     position: relative;
-                    padding: 15px 15px 0 15px;
+                    padding: 25px 20px;
+                    border-radius: 0 0 4px 4px;
                 }
                 .brand-card {
                     flex-direction: column;
                     aspect-ratio: auto;
-                    padding: 30px 20px;
+                    padding: 0;
+                    box-shadow: 0 10px 20px rgba(62, 58, 53, 0.05);
                 }
                 .brand-title-display {
-                    font-size: 2.4rem;
-                    padding: 0;
-                    margin-bottom: 10px;
-                    border-bottom: 1px solid var(--gold-accent);
+                    font-size: 2.2rem;
+                    padding: 30px 20px;
+                    margin: 0;
+                    color: var(--pastel-sage); /* Keep green title on white top */
                 }
                 .brand-name {
-                    display: none; /* Hides the duplicate title on mobile */
+                    display: none; /* Hides duplicate title on mobile green block */
                 }
+                /* Golden line adjusted for mobile geometry */
+                .brand-card::after { inset: 6px; }
             }
         }
     </style>
