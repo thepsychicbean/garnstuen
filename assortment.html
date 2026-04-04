@@ -13,7 +13,7 @@
             --text-muted: #7A7A7A;
             --gold-accent: rgba(197, 163, 113, 0.6);
             --solid-gold: #C5A371;
-            --french-gold: #EFEAD8; /* Elegant light hover background */
+            --french-gold: #EFEAD8; 
             --pastel-sage: #849684;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
@@ -44,7 +44,14 @@
             text-align: center; padding: 80px 20px 20px; max-width: 900px; margin: 0 auto;
             display: flex; flex-direction: column; align-items: center;
         }
-        .intro-section h1 { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 400; margin-bottom: 15px; color: var(--text-dark); }
+        .intro-section h1 { 
+            font-family: var(--font-serif); 
+            font-size: min(7.5vw, 3.5rem); /* Ensures it perfectly scales to fit one line */
+            white-space: nowrap; /* Forces one line */
+            font-weight: 400; 
+            margin-bottom: 15px; 
+            color: var(--text-dark); 
+        }
         .intro-section p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.9; max-width: 650px; margin: 0 auto; }
         
         .elegant-divider {
@@ -74,7 +81,7 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
             border: 1px solid #d4cbb3; 
-            -webkit-tap-highlight-color: transparent; /* Prevents weird blue flash on mobile tap */
+            -webkit-tap-highlight-color: transparent;
         }
         
         .brand-card::after {
@@ -160,13 +167,16 @@
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
         
         .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
-        .footer-brand-logo { max-height: 70px; margin-bottom: 25px; opacity: 0.9; }
+        .footer-brand-logo { max-height: 80px; margin-bottom: 25px; opacity: 0.9; } /* Restored to footer-logo */
+        
         .footer-socials { display: flex; gap: 15px; margin-bottom: 30px; }
         .footer-socials a svg { width: 20px; height: 20px; fill: var(--text-dark); transition: fill 0.3s ease; }
         .footer-socials a:hover svg { fill: var(--solid-gold); }
+        
         .footer-payments p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--text-muted); font-weight: 500; }
-        .payment-icons { display: flex; gap: 10px; }
-        .pay-badge { border: 1px solid rgba(0,0,0,0.15); padding: 5px 12px; font-size: 0.7rem; border-radius: 3px; font-weight: 500; color: var(--text-muted); background: transparent; }
+        .payment-icons { display: flex; gap: 8px; align-items: center; }
+        .pay-text { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
+        .pay-dot { color: var(--gold-accent); font-size: 1rem; line-height: 1; }
 
         .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 25px; font-weight: 600; color: var(--text-dark); }
         .footer-col p, .footer-col ul, .footer-col li { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
@@ -175,13 +185,15 @@
         .footer-col ul li a { cursor: pointer; transition: color 0.3s ease; }
         .footer-col ul li a:hover { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 1px; }
         
-        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
         .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
-        .map-link { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 2px; font-weight: 500; font-size: 0.85rem; }
         
-        .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white !important; padding: 10px 20px; border-radius: 4px; font-weight: 500; margin-top: 20px; transition: background 0.3s; font-size: 0.85rem; border: none; }
-        .whatsapp-btn:hover { background-color: #128C7E; }
-        .whatsapp-btn svg { fill: white; width: 18px; height: 18px; margin: 0; }
+        .footer-actions-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .footer-action-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-dark); font-size: 0.85rem; font-weight: 500; transition: color 0.3s; }
+        .footer-action-link:hover { color: var(--solid-gold); }
+        .footer-action-link svg { width: 16px; height: 16px; fill: currentColor; }
+        .footer-action-link.map-link { text-decoration: underline; text-decoration-color: var(--text-dark); text-underline-offset: 3px; }
+        .footer-action-link.map-link:hover { text-decoration-color: var(--solid-gold); }
         
         .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
 
@@ -195,22 +207,16 @@
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .menu-toggle { display: flex; }
             
-            .intro-section h1 { font-size: 2.8rem; }
             .elegant-divider { margin: 30px auto 40px; }
             
-            /* --- Mobile Grid Spacing & Geometry Fixes --- */
             .brand-grid { 
-                gap: 40px; /* Generous vertical spacing between cards */
-                padding: 0 10% 80px; /* 10% side padding keeps them from touching the screen edges */
-                grid-template-columns: 1fr; /* Stack neatly one by one */
+                gap: 40px; 
+                padding: 0 10% 80px; 
+                grid-template-columns: 1fr; 
             }
             
-            .brand-card {
-                aspect-ratio: 4/3; /* Slightly taller on mobile so the paragraph text fits perfectly when revealed */
-            }
-            
+            .brand-card { aspect-ratio: 4/3; }
             .brand-title-display { font-size: 2.4rem; }
-            
             .brand-card::after { inset: 6px; }
             .brand-card:hover::after, .brand-card:active::after { inset: 10px; }
 
@@ -218,6 +224,7 @@
             .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
             .footer-brand { align-items: center; }
             .footer-icon-text { flex-direction: column; align-items: center; text-align: center; }
+            .footer-actions-container { align-items: center; }
             .payment-icons { justify-content: center; }
         }
     </style>
@@ -326,7 +333,7 @@
             
             <div class="footer-brand">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="Garnstuen Logo" class="footer-brand-logo">
+                    <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-brand-logo">
                 </a>
                 
                 <div class="footer-socials">
@@ -341,9 +348,11 @@
                 <div class="footer-payments">
                     <p>Vi modtager i butikken:</p>
                     <div class="payment-icons">
-                        <span class="pay-badge">MobilePay</span>
-                        <span class="pay-badge">Visa</span>
-                        <span class="pay-badge">Mastercard</span>
+                        <span class="pay-text">MobilePay</span>
+                        <span class="pay-dot">&middot;</span>
+                        <span class="pay-text">Visa</span>
+                        <span class="pay-dot">&middot;</span>
+                        <span class="pay-text">Mastercard</span>
                     </div>
                 </div>
             </div>
@@ -354,12 +363,16 @@
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK</p>
                 </div>
-                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="map-link" target="_blank" rel="noopener noreferrer">Find Vej</a>
                 
-                <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Skriv til os
-                </a>
+                <div class="footer-actions-container">
+                    <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="footer-action-link map-link" target="_blank" rel="noopener noreferrer">
+                        Find Vej
+                    </a>
+                    <a href="https://wa.me/1234567890" class="footer-action-link" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
             </div>
 
             <div class="footer-col">
