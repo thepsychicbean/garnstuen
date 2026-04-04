@@ -13,7 +13,7 @@
             --text-muted: #7A7A7A;
             --gold-accent: rgba(197, 163, 113, 0.6);
             --solid-gold: #C5A371;
-            --french-gold: #EFEAD8; /* New elegant, light hover background */
+            --french-gold: #EFEAD8; /* Elegant light hover background */
             --pastel-sage: #849684;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
@@ -55,17 +55,16 @@
         /* --- BRAND DIRECTORY GRID --- */
         .brand-grid { 
             display: grid; 
-            /* Smaller minmax allows 4 boxes across on desktop, making them much less bulky */
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
             gap: 30px; 
             padding: 0 5% 100px; 
-            max-width: 1200px; /* Constrains the grid so it doesn't stretch too wide */
+            max-width: 1200px; 
             margin: 0 auto; 
         }
         
         .brand-card {
             position: relative;
-            aspect-ratio: 3/2; /* Sleeker, wider rectangle instead of a bulky square */
+            aspect-ratio: 3/2; 
             background-color: #FFFFFF; 
             display: flex;
             align-items: center;
@@ -75,13 +74,13 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
             border: 1px solid #d4cbb3; 
-            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: transparent; /* Prevents weird blue flash on mobile tap */
         }
         
         .brand-card::after {
             content: "";
             position: absolute;
-            inset: 6px; /* Slightly tighter inset for smaller boxes */
+            inset: 6px; 
             border: 1px solid var(--gold-accent);
             clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
             pointer-events: none;
@@ -98,8 +97,8 @@
 
         .brand-title-display {
             font-family: var(--font-serif);
-            font-size: 2.2rem; /* Reduced from 2.8rem to fit the sleeker boxes */
-            color: var(--text-dark); /* Reverted to signature dark grey */
+            font-size: 2.2rem; 
+            color: var(--text-dark); 
             font-weight: 400;
             text-align: center;
             padding: 20px;
@@ -111,7 +110,7 @@
         .brand-info {
             position: absolute;
             inset: 0;
-            background-color: var(--french-gold); /* The beautiful new Champagne/Gold background */
+            background-color: var(--french-gold); 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -127,31 +126,39 @@
         .brand-name {
             font-family: var(--font-serif);
             font-size: 1.4rem; 
-            color: var(--text-dark); /* Dark text on light gold for contrast */
+            color: var(--text-dark); 
             margin-bottom: 8px;
             font-weight: 600;
-            border-bottom: 1px solid rgba(62, 58, 53, 0.15); /* Subtle dark line */
+            border-bottom: 1px solid rgba(62, 58, 53, 0.15); 
             padding-bottom: 4px;
         }
 
         .brand-desc {
             font-size: 0.85rem;
-            color: var(--text-dark); /* Dark text for perfect readability */
+            color: var(--text-dark); 
             line-height: 1.5;
             font-weight: 400;
+            padding: 0 10px;
         }
 
         .brand-card:hover .brand-title-display,
-        .brand-card:active .brand-title-display { transform: scale(0.9); opacity: 0; }
+        .brand-card:active .brand-title-display,
+        .brand-card:focus .brand-title-display { 
+            transform: scale(0.9); 
+            opacity: 0; 
+        }
         
         .brand-card:hover .brand-info,
-        .brand-card:active .brand-info { opacity: 1; transform: translateY(0); }
+        .brand-card:active .brand-info,
+        .brand-card:focus .brand-info { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
 
         /* --- THE BESPOKE ATELIER FOOTER --- */
         footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
         
-        /* Column 1: Brand, Socials, Payments */
         .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
         .footer-brand-logo { max-height: 70px; margin-bottom: 25px; opacity: 0.9; }
         .footer-socials { display: flex; gap: 15px; margin-bottom: 30px; }
@@ -161,7 +168,6 @@
         .payment-icons { display: flex; gap: 10px; }
         .pay-badge { border: 1px solid rgba(0,0,0,0.15); padding: 5px 12px; font-size: 0.7rem; border-radius: 3px; font-weight: 500; color: var(--text-muted); background: transparent; }
 
-        /* Columns 2-4: Text and Links */
         .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 25px; font-weight: 600; color: var(--text-dark); }
         .footer-col p, .footer-col ul, .footer-col li { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
         .footer-col ul { list-style: none; }
@@ -192,37 +198,21 @@
             .intro-section h1 { font-size: 2.8rem; }
             .elegant-divider { margin: 30px auto 40px; }
             
-            /* Tighter grid on mobile */
-            .brand-grid { gap: 15px; padding-bottom: 60px; }
-            
-            /* Show text automatically on mobile since there is no hover */
-            @media (hover: none) {
-                .brand-info { 
-                    opacity: 1; 
-                    transform: translateY(0); 
-                    background-color: var(--french-gold); 
-                    position: relative;
-                    padding: 15px 15px 20px 15px; /* Slimmer padding */
-                    border-radius: 0 0 4px 4px;
-                }
-                .brand-card {
-                    flex-direction: column;
-                    aspect-ratio: auto; /* Allows it to shrink vertically to fit content */
-                    padding: 0;
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-                }
-                .brand-title-display {
-                    font-size: 2rem; /* Smaller title on mobile */
-                    padding: 25px 20px 15px; 
-                    margin: 0;
-                    color: var(--text-dark); 
-                }
-                .brand-name {
-                    display: none; 
-                }
-                .brand-card::after { inset: 5px; }
-                .brand-card:hover::after, .brand-card:active::after { inset: 5px; } /* Disable inset animation on mobile */
+            /* --- Mobile Grid Spacing & Geometry Fixes --- */
+            .brand-grid { 
+                gap: 40px; /* Generous vertical spacing between cards */
+                padding: 0 10% 80px; /* 10% side padding keeps them from touching the screen edges */
+                grid-template-columns: 1fr; /* Stack neatly one by one */
             }
+            
+            .brand-card {
+                aspect-ratio: 4/3; /* Slightly taller on mobile so the paragraph text fits perfectly when revealed */
+            }
+            
+            .brand-title-display { font-size: 2.4rem; }
+            
+            .brand-card::after { inset: 6px; }
+            .brand-card:hover::after, .brand-card:active::after { inset: 10px; }
 
             /* Footer Mobile Stacking */
             .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
