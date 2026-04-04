@@ -146,15 +146,15 @@
         }
         .journey-cta:hover { opacity: 0.7; }
 
-        /* --- FEATURED PRODUCTS --- */
+        /* --- FIBER CATEGORIES (Formerly Featured Products) --- */
         .section-title { text-align: center; font-family: var(--font-serif); font-size: 2.8rem; margin: 0 0 40px; font-weight: 400; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 5% 60px; max-width: 1400px; margin: 0 auto; }
         .product-card { text-align: left; cursor: pointer; }
         .img-placeholder { width: 100%; aspect-ratio: 4/5; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; position: relative; clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); border: 1px solid #d4cbb3; background-size: cover; background-position: center; transition: transform 0.4s ease; }
         .img-placeholder::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--gold-accent); clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%); pointer-events: none; }
         .product-card:hover .img-placeholder { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .product-meta { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; margin-top: 10px; }
-        .price { display: block; margin-top: 5px; font-size: 0.9rem; color: var(--text-muted); }
+        .product-meta { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; margin-top: 10px; color: var(--text-dark); }
+        .category-desc { font-size: 0.95rem; color: var(--text-muted); margin-top: 8px; line-height: 1.6; }
 
         /* --- NEWSLETTER SECTION --- */
         .newsletter-section { background-color: #EFECE6; text-align: center; padding: 80px 5%; margin-top: 40px; }
@@ -332,25 +332,25 @@
 
         <hr class="elegant-divider">
 
-        <h2 class="section-title">En Palet af Pasteller</h2>
+        <h2 class="section-title">Et Univers af Naturfibre</h2>
         <div class="product-grid">
             
             <div class="product-card" onclick="window.location.href='yarn.html';">
                 <div class="img-placeholder" style="background-image: url('images/merino-sage.jpg');"></div>
-                <div class="product-meta">Highland Merino | Støvet Grøn</div>
-                <span class="price">DKK 45,00</span>
-            </div>
-
-            <div class="product-card" onclick="window.location.href='yarn.html';">
-                <div class="img-placeholder" style="background-image: url('images/alpaca-charcoal.jpg');"></div>
-                <div class="product-meta">Varm Alpaca | Koksgrå</div>
-                <span class="price">DKK 38,00</span>
+                <div class="product-meta">Klassisk Uld</div>
+                <p class="category-desc">Ærlige, slidstærke fibre til tidløse og varme trøjer, der holder i generationer.</p>
             </div>
 
             <div class="product-card" onclick="window.location.href='yarn.html';">
                 <div class="img-placeholder" style="background-image: url('images/alpaca-taupe.jpg');"></div>
-                <div class="product-meta">Fin Alpaca | Taupe</div>
-                <span class="price">DKK 50,00</span>
+                <div class="product-meta">Den Blødeste Alpaca</div>
+                <p class="category-desc">Lunt, vægtløst og med et smukt, blødt fald. Ren luksus direkte mod huden.</p>
+            </div>
+
+            <div class="product-card" onclick="window.location.href='yarn.html';">
+                <div class="img-placeholder" style="background-image: url('images/silk-mohair.jpg');"></div>
+                <div class="product-meta">Silke & Mohair</div>
+                <p class="category-desc">En delikat halo og subtil glans, perfekt som følgetråd til de fineste detaljer.</p>
             </div>
 
         </div>
