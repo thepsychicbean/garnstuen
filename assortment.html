@@ -15,7 +15,7 @@
             --solid-gold: #C5A371;
             --french-gold: #EFEAD8; 
             --pastel-sage: #849684;
-            --light-sage: #CFD6CF; /* New, elegant pale green for hover */
+            --light-sage: #CFD6CF; 
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -105,7 +105,7 @@
 
         .brand-title-display {
             font-family: var(--font-serif);
-            font-size: 1.8rem; /* Scaled down for elegance */
+            font-size: 1.8rem; 
             color: var(--text-dark); 
             font-weight: 400;
             text-align: center;
@@ -118,7 +118,7 @@
         .brand-info {
             position: absolute;
             inset: 0;
-            background-color: var(--light-sage); /* The new pale green */
+            background-color: var(--light-sage); 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -133,7 +133,7 @@
 
         .brand-name {
             font-family: var(--font-serif);
-            font-size: 1.25rem; /* Slightly scaled down */
+            font-size: 1.25rem; 
             color: var(--text-dark); 
             margin-bottom: 6px;
             font-weight: 600;
@@ -142,7 +142,7 @@
         }
 
         .brand-desc {
-            font-size: 0.8rem; /* Neater, more compact text */
+            font-size: 0.8rem; 
             color: var(--text-dark); 
             line-height: 1.45;
             font-weight: 400;
@@ -183,7 +183,8 @@
         .footer-col p, .footer-col ul, .footer-col li { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
         .footer-col ul { list-style: none; }
         
-        /* Symmetrical Opening Hours */
+        /* Symmetrical Opening Hours - Tightened Gap */
+        .hours-list { max-width: 220px; } /* Constrains width to bring times closer */
         .hours-list li { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.04); padding-bottom: 8px; margin-bottom: 12px; }
         .hours-list li:last-child { border-bottom: none; }
         
@@ -228,7 +229,7 @@
             
             .brand-grid { gap: 40px; padding: 0 10% 80px; grid-template-columns: 1fr; }
             .brand-card { aspect-ratio: 4/3; }
-            .brand-title-display { font-size: 2rem; } /* Scaled down for mobile */
+            .brand-title-display { font-size: 2rem; } 
             .brand-card::after { inset: 6px; }
             .brand-card:hover::after, .brand-card:active::after { inset: 10px; }
 
@@ -237,7 +238,10 @@
             .footer-brand { align-items: center; }
             .footer-icon-text { flex-direction: column; align-items: center; text-align: center; }
             .payment-icons { justify-content: center; }
-            .hours-list li { justify-content: center; gap: 15px; } 
+            
+            /* Center the newly constrained hours list on mobile */
+            .hours-list { margin: 0 auto; }
+            .hours-list li { justify-content: space-between; } 
         }
     </style>
 </head>
