@@ -12,7 +12,7 @@
             --text-dark: #3E3A35;
             --text-muted: #7A7A7A;
             --gold-accent: rgba(197, 163, 113, 0.6);
-            --solid-gold: #C5A371; /* Added for the new footer links */
+            --solid-gold: #C5A371;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -23,180 +23,74 @@
 
         /* --- THE PRISTINE HEADER --- */
         header { 
-            padding: 20px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            background-color: var(--bg-vellum);
-            position: relative;
-            z-index: 1000;
+            padding: 15px 5%; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-vellum); position: relative; z-index: 1000;
         }
-        .logo img { 
-            max-height: 80px; 
-            width: auto; 
-            display: block; 
-        }
+        .logo img { max-height: 70px; width: auto; display: block; }
         
-        .nav-links { 
-            display: flex; 
-            gap: 25px; 
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            font-weight: 500; 
-            transition: all 0.3s ease;
-        }
+        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
         .nav-links a:hover { color: #C5A371; }
         .nav-links a.active-link { color: #C5A371; }
 
         .header-actions { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
-        
         .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; }
         .menu-toggle span { width: 100%; height: 2px; background-color: var(--text-dark); transition: all 0.3s ease; }
 
         /* --- ABOUT US SPECIFIC STYLES --- */
-        .about-banner {
-            width: 100%;
-            max-width: 1400px;
-            margin: 40px auto 0;
-            padding: 0 5%;
-        }
-        .about-banner img {
-            width: 100%;
-            height: auto; 
-            display: block;
-            border-radius: 4px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        }
+        .about-banner { width: 100%; max-width: 1300px; margin: 30px auto 0; padding: 0 5%; }
+        .about-banner img { width: 100%; height: auto; display: block; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .about-content {
-            max-width: 800px;
-            margin: 80px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        .about-content h1 {
-            font-family: var(--font-serif);
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-        .about-content p {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
+        .about-content { max-width: 750px; margin: 50px auto; padding: 0 20px; text-align: center; }
+        .about-content h1 { font-family: var(--font-serif); font-size: 3rem; font-weight: 400; margin-bottom: 20px; }
+        .about-content p { font-size: 1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px; }
 
         /* Store Timings Box */
-        .timings-box {
-            margin-top: 60px;
-            padding: 40px;
-            border: 1px solid rgba(0,0,0,0.1);
-            background-color: #fff;
-            border-radius: 2px;
-        }
-        .timings-box h3 {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-        .timings-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 400px;
-            margin: 0 auto;
-            text-align: left;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            border-bottom: 1px dashed rgba(0,0,0,0.1);
-            padding-bottom: 10px;
-        }
-        .timings-grid:last-child {
-            border-bottom: none;
-        }
+        .timings-box { margin-top: 40px; padding: 30px; border: 1px solid rgba(197, 163, 113, 0.2); background-color: #fff; border-radius: 2px; }
+        .timings-box h3 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 15px; font-weight: 400; }
+        .timings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 350px; margin: 0 auto; text-align: left; font-size: 0.9rem; color: var(--text-dark); border-bottom: 1px dashed rgba(0,0,0,0.05); padding-bottom: 8px; margin-bottom: 8px; }
+        .timings-grid:last-child { border-bottom: none; }
         .day { font-weight: 500; }
         .hours { text-align: right; color: var(--text-muted); }
 
         /* --- THE BESPOKE ATELIER FOOTER --- */
-        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
-        
-        .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
-        .footer-brand-logo { max-height: 110px; margin-bottom: 25px; opacity: 0.9; } 
-        
-        .footer-socials { display: flex; gap: 18px; margin-bottom: 30px; align-items: center; }
-        .footer-socials a svg { width: 22px; height: 22px; fill: var(--text-dark); transition: fill 0.3s ease; }
+        footer { background-color: #EFECE6; padding: 60px 5% 40px; margin-top: auto; border-top: 1px solid rgba(0,0,0,0.03); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 40px; }
+        .footer-brand-logo { max-height: 90px; margin-bottom: 15px; opacity: 0.9; } 
+        .footer-socials { display: flex; gap: 15px; margin-bottom: 25px; align-items: center; }
+        .footer-socials a svg { width: 20px; height: 20px; fill: var(--text-dark); transition: fill 0.3s ease; }
         .footer-socials a:hover svg { fill: var(--solid-gold); }
-        
-        .footer-payments p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--text-muted); font-weight: 500; }
+        .footer-payments p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--text-muted); font-weight: 500; }
         .payment-icons { display: flex; gap: 8px; align-items: center; }
-        .pay-text { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
-        .pay-dot { color: var(--gold-accent); font-size: 1rem; line-height: 1; }
-
-        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 25px; font-weight: 600; color: var(--text-dark); }
-        .footer-col p, .footer-col ul, .footer-col li { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .pay-text { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
+        .pay-dot { color: var(--gold-accent); font-size: 0.9rem; line-height: 1; }
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; color: var(--text-dark); }
+        .footer-col p, .footer-col ul, .footer-col li { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
         .footer-col ul { list-style: none; }
-        
-        /* Symmetrical Opening Hours - Tightened Gap */
-        .hours-list { max-width: 220px; } 
-        .hours-list li { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.04); padding-bottom: 8px; margin-bottom: 12px; }
-        .hours-list li:last-child { border-bottom: none; }
-        
-        .footer-col ul.standard-links li { margin-bottom: 12px; transition: color 0.3s ease; }
-        .footer-col ul.standard-links li a { cursor: pointer; transition: color 0.3s ease; }
+        .hours-list { max-width: 210px; } 
+        .hours-list li { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 6px; margin-bottom: 10px; }
+        .footer-col ul.standard-links li { margin-bottom: 10px; transition: color 0.3s ease; }
         .footer-col ul.standard-links li a:hover { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 1px; }
-        
         .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 25px; }
         .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
-        
-        /* Elegant Directions Button */
-        .btn-elegant-small {
-            display: inline-block;
-            border: 1px solid var(--text-dark);
-            padding: 10px 20px;
-            font-family: var(--font-sans);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.7rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
-        .btn-elegant-small:hover {
-            background-color: var(--text-dark);
-            color: var(--bg-vellum);
-        }
-        
-        .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
+        .btn-elegant-small { display: inline-block; border: 1px solid var(--text-dark); padding: 10px 20px; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 1.2px; font-size: 0.65rem; transition: all 0.3s ease; cursor: pointer; color: var(--text-dark); }
+        .btn-elegant-small:hover { background-color: var(--text-dark); color: var(--bg-vellum); }
+        .footer-bottom { text-align: center; padding-top: 25px; font-size: 0.75rem; color: var(--text-muted); }
 
         /* Mobile Adjustments */
         @media (max-width: 1024px) {
-            header { 
-                justify-content: center; 
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
+            header { justify-content: center; padding: 12px 5%; }
             .header-actions { position: absolute; right: 5%; }
             .header-actions > a { display: none; }
-            .logo img { max-height: 90px; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
-            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .logo img { max-height: 65px; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 15px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
+            .nav-links.active { padding: 25px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); }
             .menu-toggle { display: flex; }
-            .about-content h1 { font-size: 2.8rem; }
-
-            /* Footer Mobile Stacking */
-            .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+            .about-content h1 { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 35px; text-align: center; }
             .footer-brand { align-items: center; }
-            .footer-icon-text { flex-direction: column; align-items: center; text-align: center; }
-            .payment-icons { justify-content: center; }
-            
-            /* Center the newly constrained hours list on mobile */
+            .footer-icon-text { flex-direction: column; align-items: center; }
             .hours-list { margin: 0 auto; }
-            .hours-list li { justify-content: space-between; } 
         }
     </style>
 </head>
@@ -225,7 +119,7 @@
 
     <main>
         <section class="about-banner">
-            <img src="images/about-banner.jpg" alt="Daphni Cottage and Yarn Tree">
+            <img src="images/about-banner.jpg" alt="Garnstuen Atmosfære">
         </section>
 
         <section class="about-content">
@@ -242,20 +136,19 @@
 
             <div class="timings-box">
                 <h3>Åbningstider</h3>
-                
                 <div class="timings-grid">
                     <span class="day">Mandag - Torsdag</span>
                     <span class="hours">10:00 - 17:30</span>
                 </div>
-                <div class="timings-grid" style="margin-top: 15px;">
+                <div class="timings-grid">
                     <span class="day">Fredag</span>
                     <span class="hours">10:00 - 18:00</span>
                 </div>
-                <div class="timings-grid" style="margin-top: 15px;">
+                <div class="timings-grid">
                     <span class="day">Lørdag</span>
                     <span class="hours">10:00 - 14:00</span>
                 </div>
-                <div class="timings-grid" style="margin-top: 15px;">
+                <div class="timings-grid">
                     <span class="day">Søndag & Helligdage</span>
                     <span class="hours">Lukket (efter aftale)</span>
                 </div>
@@ -265,12 +158,10 @@
 
     <footer>
         <div class="footer-grid">
-            
             <div class="footer-brand">
                 <a href="index.html">
                     <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-brand-logo">
                 </a>
-                
                 <div class="footer-socials">
                     <a href="#" aria-label="Instagram">
                         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -278,11 +169,7 @@
                     <a href="#" aria-label="Pinterest">
                         <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.624 0 12.017 0z"/></svg>
                     </a>
-                    <a href="https://wa.me/1234567890" aria-label="WhatsApp" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    </a>
                 </div>
-
                 <div class="footer-payments">
                     <p>Vi modtager i butikken:</p>
                     <div class="payment-icons">
@@ -296,7 +183,7 @@
             </div>
 
             <div class="footer-col">
-                <h4>Atelieret</h4>
+                <h4>Besøg Garnstuen</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <p>
@@ -305,7 +192,6 @@
                         E-mail: kontakt@garnstuen.dk
                     </p>
                 </div>
-                
                 <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="btn-elegant-small" target="_blank" rel="noopener noreferrer">
                     Få Rutevejledning
                 </a>
@@ -330,7 +216,6 @@
                 </ul>
             </div>
         </div> 
-        
         <div class="footer-bottom">
             <p>Daph9&GPS© 2026. Forfiner hver en maske.</p>
         </div>
