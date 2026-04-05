@@ -26,13 +26,13 @@
 
         /* --- THE PRISTINE HEADER --- */
         header { 
-            padding: 20px 5%; display: flex; justify-content: space-between; 
+            padding: 15px 5%; display: flex; justify-content: space-between; 
             align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
             background-color: var(--bg-vellum); position: relative; z-index: 1000;
         }
-        .logo img { max-height: 80px; width: auto; display: block; }
+        .logo img { max-height: 70px; width: auto; display: block; }
         
-        .nav-links { display: flex; gap: 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-links { display: flex; gap: 20px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: all 0.3s ease; }
         .nav-links a:hover { color: #C5A371; }
         .nav-links a.active-link { color: #C5A371; }
 
@@ -42,30 +42,29 @@
 
         /* --- INTRO SECTION --- */
         .intro-section {
-            text-align: center; padding: 80px 20px 20px; max-width: 900px; margin: 0 auto;
+            text-align: center; padding: 60px 20px 20px; max-width: 900px; margin: 0 auto;
             display: flex; flex-direction: column; align-items: center;
         }
         .intro-section h1 { 
             font-family: var(--font-serif); 
-            font-size: min(7.5vw, 3.5rem); 
-            white-space: nowrap; 
+            font-size: min(7.5vw, 3.2rem); 
             font-weight: 400; 
-            margin-bottom: 15px; 
+            margin-bottom: 10px; 
             color: var(--text-dark); 
         }
-        .intro-section p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.9; max-width: 650px; margin: 0 auto; }
+        .intro-section p { color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 650px; margin: 0 auto; }
         
         .elegant-divider {
-            border: none; height: 1px; width: 40%; max-width: 200px; margin: 40px auto 60px;
-            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); opacity: 0.6;
+            border: none; height: 1px; width: 30%; max-width: 200px; margin: 30px auto 50px;
+            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); opacity: 0.5;
         }
 
         /* --- BRAND DIRECTORY GRID --- */
         .brand-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 30px; 
-            padding: 0 5% 100px; 
+            gap: 25px; 
+            padding: 0 5% 60px; 
             max-width: 1200px; 
             margin: 0 auto; 
         }
@@ -105,7 +104,7 @@
 
         .brand-title-display {
             font-family: var(--font-serif);
-            font-size: 1.8rem; 
+            font-size: 1.6rem; 
             color: var(--text-dark); 
             font-weight: 400;
             text-align: center;
@@ -133,7 +132,7 @@
 
         .brand-name {
             font-family: var(--font-serif);
-            font-size: 1.25rem; 
+            font-size: 1.2rem; 
             color: var(--text-dark); 
             margin-bottom: 6px;
             font-weight: 600;
@@ -164,82 +163,71 @@
         }
 
         /* --- THE BESPOKE ATELIER FOOTER --- */
-        footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
+        footer { background-color: #EFECE6; padding: 60px 5% 30px; margin-top: auto; border-top: 1px solid rgba(0,0,0,0.03); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 35px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 40px; }
         
         .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
-        .footer-brand-logo { max-height: 110px; margin-bottom: 25px; opacity: 0.9; } 
+        .footer-brand-logo { max-height: 90px; margin-bottom: 15px; opacity: 0.9; } 
         
-        .footer-socials { display: flex; gap: 18px; margin-bottom: 30px; align-items: center; }
-        .footer-socials a svg { width: 22px; height: 22px; fill: var(--text-dark); transition: fill 0.3s ease; }
+        .footer-socials { display: flex; gap: 15px; margin-bottom: 25px; align-items: center; }
+        .footer-socials a svg { width: 20px; height: 20px; fill: var(--text-dark); transition: fill 0.3s ease; }
         .footer-socials a:hover svg { fill: var(--solid-gold); }
         
-        .footer-payments p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--text-muted); font-weight: 500; }
+        .footer-payments p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--text-muted); font-weight: 500; }
         .payment-icons { display: flex; gap: 8px; align-items: center; }
-        .pay-text { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
-        .pay-dot { color: var(--gold-accent); font-size: 1rem; line-height: 1; }
+        .pay-text { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
+        .pay-dot { color: var(--gold-accent); font-size: 0.9rem; line-height: 1; }
 
-        .footer-col h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 25px; font-weight: 600; color: var(--text-dark); }
-        .footer-col p, .footer-col ul, .footer-col li { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; color: var(--text-dark); }
+        .footer-col p, .footer-col ul, .footer-col li { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
         .footer-col ul { list-style: none; }
         
-        /* Symmetrical Opening Hours - Tightened Gap */
-        .hours-list { max-width: 220px; } /* Constrains width to bring times closer */
-        .hours-list li { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.04); padding-bottom: 8px; margin-bottom: 12px; }
+        .hours-list { max-width: 210px; } 
+        .hours-list li { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 6px; margin-bottom: 10px; }
         .hours-list li:last-child { border-bottom: none; }
         
-        .footer-col ul.standard-links li { margin-bottom: 12px; transition: color 0.3s ease; }
-        .footer-col ul.standard-links li a { cursor: pointer; transition: color 0.3s ease; }
+        .footer-col ul.standard-links li { margin-bottom: 10px; }
         .footer-col ul.standard-links li a:hover { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 1px; }
         
-        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 25px; }
+        .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
         .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
         
-        /* Elegant Directions Button */
         .btn-elegant-small {
             display: inline-block;
             border: 1px solid var(--text-dark);
             padding: 10px 20px;
             font-family: var(--font-sans);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.7rem;
+            letter-spacing: 1.2px;
+            font-size: 0.65rem;
             transition: all 0.3s ease;
             cursor: pointer;
             color: var(--text-dark);
         }
-        .btn-elegant-small:hover {
-            background-color: var(--text-dark);
-            color: var(--bg-vellum);
-        }
+        .btn-elegant-small:hover { background-color: var(--text-dark); color: var(--bg-vellum); }
         
-        .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
+        .footer-bottom { text-align: center; padding-top: 25px; font-size: 0.75rem; color: var(--text-muted); }
 
         /* Mobile Adjustments */
         @media (max-width: 1024px) {
-            header { justify-content: center; padding: 15px 5%; }
+            header { justify-content: center; padding: 12px 5%; }
             .header-actions { position: absolute; right: 5%; }
             .header-actions > a { display: none; }
-            .logo img { max-height: 75px; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
-            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .logo img { max-height: 65px; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 15px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
+            .nav-links.active { padding: 25px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.08); }
             .menu-toggle { display: flex; }
             
-            .elegant-divider { margin: 30px auto 40px; }
+            .elegant-divider { margin: 25px auto 35px; }
             
-            .brand-grid { gap: 40px; padding: 0 10% 80px; grid-template-columns: 1fr; }
+            .brand-grid { gap: 30px; padding: 0 10% 60px; grid-template-columns: 1fr; }
             .brand-card { aspect-ratio: 4/3; }
-            .brand-title-display { font-size: 2rem; } 
-            .brand-card::after { inset: 6px; }
-            .brand-card:hover::after, .brand-card:active::after { inset: 10px; }
+            .brand-title-display { font-size: 1.8rem; } 
 
-            /* Footer Mobile Stacking */
-            .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
             .footer-brand { align-items: center; }
             .footer-icon-text { flex-direction: column; align-items: center; text-align: center; }
             .payment-icons { justify-content: center; }
-            
-            /* Center the newly constrained hours list on mobile */
             .hours-list { margin: 0 auto; }
             .hours-list li { justify-content: space-between; } 
         }
@@ -270,7 +258,7 @@
     <main>
         <div class="intro-section">
             <h1>Huse Vi Repræsenterer</h1>
-            <p>Vi kuraterer udelukkende mærker, der deler vores passion for ægte håndværk, bæredygtighed og kompromisløs kvalitet. Her kan du gå på opdagelse i de huse, hvis garner og værktøjer vi stolt fører i atelieret.</p>
+            <p>Vi kuraterer udelukkende mærker, der deler vores passion for ægte håndværk, bæredygtighed og kompromisløs kvalitet. Her kan du gå på opdagelse i de huse, hvis garner og værktøjer vi stolt fører hos Garnstuen.</p>
         </div>
 
         <hr class="elegant-divider">
@@ -377,7 +365,7 @@
             </div>
 
             <div class="footer-col">
-                <h4>Atelieret</h4>
+                <h4>Besøg Garnstuen</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <p>
