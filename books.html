@@ -21,7 +21,7 @@
         a { text-decoration: none; color: inherit; }
         main { flex: 1; padding-bottom: 80px; }
 
-        /* --- THE PRISTINE HEADER (MATCHED TO TILBEHØR) --- */
+        /* --- THE PRISTINE HEADER --- */
         header { 
             padding: 20px 5%; 
             display: flex; 
@@ -57,19 +57,19 @@
         .intro-header h1 { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 400; margin-bottom: 15px; }
         .intro-header p { color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.8; font-size: 1.05rem; }
 
-        /* --- BRAND RECOMMENDATION BUTTONS --- */
+        /* --- THEMED RECOMMENDATION BUTTONS (Narrower) --- */
         .brand-recommendations { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
             gap: 20px; 
-            padding: 0 5% 60px; 
-            max-width: 1200px; 
+            padding: 0 10% 60px; /* Increased side padding to keep buttons away from edges */
+            max-width: 1100px; 
             margin: 0 auto; 
         }
         .recommendation-btn {
             position: relative;
             background-color: #FFFFFF;
-            padding: 25px 15px;
+            padding: 22px 15px;
             text-align: center;
             font-family: var(--font-serif);
             font-size: 1.2rem;
@@ -78,7 +78,7 @@
             transition: all 0.4s ease;
             clip-path: polygon(10% 0, 90% 0, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0 80%, 0 20%);
             border: 1px solid #d4cbb3;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
         .recommendation-btn::after {
             content: "";
@@ -89,8 +89,8 @@
             opacity: 0.5;
             transition: all 0.3s ease;
         }
-        .recommendation-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(62, 58, 53, 0.06); }
-        .recommendation-btn:hover::after { inset: 8px; opacity: 1; border-color: var(--solid-gold); }
+        .recommendation-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(62, 58, 53, 0.05); }
+        .recommendation-btn:hover::after { inset: 7px; opacity: 1; border-color: var(--solid-gold); }
 
         /* --- LITERATURE SECTION (SMALL FRAMES) --- */
         .literature-section { padding: 60px 5%; max-width: 1400px; margin: 0 auto; border-top: 1px solid rgba(0,0,0,0.05); }
@@ -102,7 +102,7 @@
             background-size: cover; background-position: center; background-color: #EFECE6;
             position: relative;
             clip-path: polygon(8% 0, 92% 0, 100% 6%, 100% 94%, 92% 100%, 8% 100%, 0 94%, 0 6%);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: transform 0.4s ease;
             box-shadow: 0 10px 25px rgba(0,0,0,0.04);
         }
         .book-cover-small::after {
@@ -110,26 +110,17 @@
             clip-path: polygon(8% 0, 92% 0, 100% 6%, 100% 94%, 92% 100%, 8% 100%, 0 94%, 0 6%);
             pointer-events: none; opacity: 0.6;
         }
-        .book-card-small:hover .book-cover-small { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        .book-card-small:hover .book-cover-small { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
         .book-title { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--text-dark); display: block; margin-top: 10px; }
         .book-price { display: block; font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
-        /* --- NEWSLETTER SECTION FIX --- */
-        .newsletter-section { background-color: var(--bg-vellum); padding: 80px 5% 20px; }
-        .newsletter-container {
-            max-width: 700px; margin: 0 auto; padding: 60px 40px;
-            background-color: #fff; border: 1px solid rgba(197, 163, 113, 0.3);
-            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-        }
-        .newsletter-section h2 { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 400; margin-bottom: 15px; }
-        .newsletter-section p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; line-height: 1.6; max-width: 500px; margin: 0 auto 30px; }
-        .newsletter-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; }
-        .newsletter-form input { width: 100%; padding: 15px 20px; border: 1px solid rgba(0,0,0,0.1); font-family: var(--font-sans); background: var(--bg-vellum); outline: none; transition: border 0.3s; }
-        .newsletter-form input:focus { border-color: var(--gold-accent); }
-        .newsletter-form button { width: 100%; padding: 15px 30px; background-color: var(--text-dark); color: var(--bg-vellum); border: none; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; cursor: pointer; transition: background 0.3s; }
-        .newsletter-form button:hover { background-color: #1a1a1a; }
+        /* --- FINALE SECTION (LADY KNITTING) --- */
+        .finale-section { text-align: center; padding: 80px 5%; background-color: white; border: 1px solid rgba(197, 163, 113, 0.2); max-width: 800px; margin: 40px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .finale-section h2 { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 400; margin-bottom: 20px; }
+        .knitting-lady-art { width: 100%; max-width: 280px; margin: 0 auto 30px; opacity: 0.85; filter: grayscale(1); }
+        .finale-quote { font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--text-dark); line-height: 1.6; }
 
-        /* --- THE PERFECT FOOTER (MATCHED TO TILBEHØR) --- */
+        /* --- GARNSTUEN FOOTER --- */
         footer { background-color: #EFECE6; padding: 80px 5% 40px; margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 50px; }
         .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
@@ -161,9 +152,9 @@
             .header-actions > a { display: none; }
             .logo img { max-height: 75px; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-vellum); flex-direction: column; align-items: center; gap: 20px; padding: 0; height: 0; overflow: hidden; border-bottom: none; z-index: 999; }
-            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); }
             .menu-toggle { display: flex; }
-            .intro-header h1 { font-size: 2.8rem; }
+            .brand-recommendations { padding: 0 5% 40px; grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
             .footer-brand { align-items: center; }
             .footer-icon-text { flex-direction: column; align-items: center; }
@@ -235,15 +226,10 @@
             </div>
         </section>
 
-        <section class="newsletter-section">
-            <div class="newsletter-container">
-                <h2>Bliv en del af Strikkeklubben</h2>
-                <p>Skriv dig op til vores nyhedsbrev og få invitationer til eksklusive events i butikken, nye strikkeopskrifter og besked om nye kvaliteter.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Tak for din tilmelding!');">
-                    <input type="email" placeholder="Din e-mailadresse..." required>
-                    <button type="submit">Tilmeld</button>
-                </form>
-            </div>
+        <section class="finale-section">
+            <h2>Forfin Hver En Maske</h2>
+            <img src="images/lady-knitting.svg" alt="Elegant lady knitting" class="knitting-lady-art">
+            <p class="finale-quote">"At strikke en maske er at strikke en fortælling."<br>— En Strikkeven</p>
         </section>
     </main>
 
@@ -269,7 +255,7 @@
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK<br><br>Tlf: +45 12 34 56 78<br>E-mail: kontakt@garnstuen.dk</p>
                 </div>
-                <a href="#" class="btn-elegant-small">Få Rutevejledning</a>
+                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="btn-elegant-small">Få Rutevejledning</a>
             </div>
             <div class="footer-col">
                 <h4>Åbningstider</h4>
