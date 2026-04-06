@@ -65,6 +65,7 @@
             color: var(--text-dark);
             cursor: pointer;
             transition: all 0.4s ease;
+            /* Standard Desktop Chamfer */
             clip-path: polygon(10% 0, 90% 0, 100% 30%, 100% 70%, 90% 100%, 10% 100%, 0 70%, 0 30%);
             border: 1px solid #d4cbb3;
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
@@ -74,7 +75,7 @@
             position: absolute;
             inset: 5px;
             border: 1px solid var(--gold-accent);
-            clip-path: polygon(10% 0, 90% 0, 100% 30%, 100% 70%, 90% 100%, 10% 100%, 0 70%, 0 30%);
+            clip-path: inherit;
             opacity: 0.5;
             transition: all 0.3s ease;
         }
@@ -96,7 +97,7 @@
         }
         .book-cover-small::after {
             content: ""; position: absolute; inset: 6px; border: 1px solid var(--gold-accent);
-            clip-path: polygon(8% 0, 92% 0, 100% 6%, 100% 94%, 92% 100%, 8% 100%, 0 94%, 0 6%);
+            clip-path: inherit;
             pointer-events: none; opacity: 0.6;
         }
         .book-card-small:hover .book-cover-small { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
@@ -108,34 +109,23 @@
         .lady-svg { width: 120px; height: auto; margin-bottom: 30px; fill: none; stroke: var(--text-dark); stroke-width: 1; opacity: 0.8; }
         .finale-quote { font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; color: var(--text-dark); line-height: 1.6; }
 
-        /* --- THE PERFECT FOOTER (WITH THEME GREEN) --- */
-        footer { 
-            background-color: #EFECE6; 
-            padding: 60px 5% 30px; 
-            margin-top: auto; 
-            border-top: 3px solid var(--pastel-sage); /* Added theme green border */
-        }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 40px; }
+        /* --- RESTORED ORIGINAL FOOTER --- */
+        footer { background-color: #EFECE6; padding: 60px 5% 30px; margin-top: auto; border-top: 1px solid rgba(0,0,0,0.03); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 35px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 40px; }
         
         .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
         .footer-brand-logo { max-height: 90px; margin-bottom: 15px; opacity: 0.9; } 
         
         .footer-socials { display: flex; gap: 15px; margin-bottom: 25px; align-items: center; }
         .footer-socials a svg { width: 20px; height: 20px; fill: var(--text-dark); transition: fill 0.3s ease; }
-        .footer-socials a:hover svg { fill: var(--pastel-sage); } /* Green on hover */
+        .footer-socials a:hover svg { fill: var(--solid-gold); }
         
         .footer-payments p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--text-muted); font-weight: 500; }
         .payment-icons { display: flex; gap: 8px; align-items: center; }
         .pay-text { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
-        .pay-dot { color: var(--pastel-sage); font-size: 0.9rem; line-height: 1; }
+        .pay-dot { color: var(--gold-accent); font-size: 0.9rem; line-height: 1; }
 
-        .footer-col h4 { 
-            font-family: var(--font-serif); 
-            font-size: 1.2rem; 
-            margin-bottom: 20px; 
-            font-weight: 600; 
-            color: var(--pastel-sage); /* Headers now use theme green */
-        }
+        .footer-col h4 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; color: var(--text-dark); }
         .footer-col p, .footer-col ul, .footer-col li { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
         .footer-col ul { list-style: none; }
         
@@ -144,17 +134,17 @@
         .hours-list li:last-child { border-bottom: none; }
         
         .footer-col ul.standard-links li { margin-bottom: 10px; }
-        .footer-col ul.standard-links li a:hover { color: var(--pastel-sage); border-bottom: 1px solid var(--pastel-sage); padding-bottom: 1px; }
+        .footer-col ul.standard-links li a:hover { color: var(--text-dark); border-bottom: 1px solid var(--text-dark); padding-bottom: 1px; }
         
         .footer-icon-text { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
-        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--pastel-sage); }
+        .footer-icon-text svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--text-muted); }
         
         .btn-elegant-small {
             display: inline-block; border: 1px solid var(--text-dark); padding: 10px 20px;
             font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 1.2px;
             font-size: 0.65rem; transition: all 0.3s ease; cursor: pointer; color: var(--text-dark);
         }
-        .btn-elegant-small:hover { background-color: var(--pastel-sage); color: white; border-color: var(--pastel-sage); }
+        .btn-elegant-small:hover { background-color: var(--text-dark); color: var(--bg-vellum); }
         
         .footer-bottom { text-align: center; padding-top: 25px; font-size: 0.75rem; color: var(--text-muted); }
 
@@ -167,13 +157,18 @@
             .nav-links.active { padding: 30px 0; height: auto; border-bottom: 1px solid rgba(0,0,0,0.1); }
             .menu-toggle { display: flex; }
             
-            /* REDUCED WIDTH BUTTONS FOR MOBILE */
+            /* REDUCED WIDTH & REDUCED CHAMFER FOR MOBILE */
             .brand-recommendations { 
                 grid-template-columns: 1fr; 
-                max-width: 260px; /* narrowed significantly for mobile */
+                max-width: 260px; 
                 padding: 0 20px 40px;
             }
-            .recommendation-btn { padding: 15px 8px; font-size: 1rem; }
+            .recommendation-btn { 
+                padding: 15px 8px; 
+                font-size: 1rem; 
+                /* Reduced Chamfer logic (smaller corner percentages) */
+                clip-path: polygon(5% 0, 95% 0, 100% 15%, 100% 85%, 95% 100%, 5% 100%, 0 85%, 0 15%);
+            }
 
             .book-grid-small { grid-template-columns: 1fr 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
@@ -250,7 +245,7 @@
         <section class="finale-section">
             <svg class="lady-svg" viewBox="0 0 100 100">
                 <path d="M50,10c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S55,10,50,10z M50,28c-10,0-18,8-18,18v30h5V55h2v21h5V55h2v21h5V55h2v21h5V46 C68,36,60,28,50,28z" stroke="currentColor" fill="none" />
-                <path d="M40,50 Q50,65 60,50" stroke="var(--pastel-sage)" stroke-width="1.5" />
+                <path d="M40,50 Q50,65 60,50" stroke="var(--solid-gold)" stroke-width="1.5" />
             </svg>
             <p class="finale-quote">"Lykkens dør har ingen klinke,<br>den åbner sig indefra."</p>
         </section>
@@ -259,9 +254,7 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="index.html">
-                    <img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-brand-logo">
-                </a>
+                <a href="index.html"><img src="images/footer-logo.png" alt="Garnstuen Logo" class="footer-brand-logo"></a>
                 <div class="footer-socials">
                     <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
                     <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.624 0 12.017 0z"/></svg></a>
@@ -276,16 +269,14 @@
                     </div>
                 </div>
             </div>
-
             <div class="footer-col">
                 <h4>Besøg Garnstuen</h4>
                 <div class="footer-icon-text">
                     <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <p>Garnstuen<br>Østerbrogade 138<br>2100 København Ø, DK<br><br>Tlf: +45 12 34 56 78<br>E-mail: kontakt@garnstuen.dk</p>
                 </div>
-                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="btn-elegant-small" target="_blank" rel="noopener noreferrer">Få Rutevejledning</a>
+                <a href="https://maps.google.com/?q=Østerbrogade+138,+2100+København+Ø,+Danmark" class="btn-elegant-small">Få Rutevejledning</a>
             </div>
-
             <div class="footer-col">
                 <h4>Åbningstider</h4>
                 <ul class="hours-list">
@@ -294,7 +285,6 @@
                     <li><span>Søndag:</span> <span>Lukket</span></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Information</h4>
                 <ul class="standard-links">
@@ -305,10 +295,7 @@
                 </ul>
             </div>
         </div> 
-        
-        <div class="footer-bottom">
-            <p>Daph9&GPS© 2026. Forfiner hver en maske.</p>
-        </div>
+        <div class="footer-bottom"><p>Daph9&GPS© 2026. Forfiner hver en maske.</p></div>
     </footer>
 
     <script>
